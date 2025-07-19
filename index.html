@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project KOL</title>
+    <title>Weak Coin</title>
     <style>
         * {
             margin: 0;
@@ -12,434 +12,74 @@
         }
 
         body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f8f6f0 0%, #e8e2d5 100%);
+            font-family: Arial, sans-serif;
+            background: white;
+            color: black;
+            line-height: 1.6;
             min-height: 100vh;
-            padding: 60px 20px;
-            color: #2c2c2c;
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .x-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .x-button:hover {
-            background: rgba(0, 0, 0, 1);
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .header {
-            margin-bottom: 80px;
-        }
-
-        .header h1 {
-            font-size: 4rem;
-            font-weight: 300;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.05);
-            letter-spacing: -2px;
-            color: #2c2c2c;
-        }
-
-        .header p {
-            font-size: 1.3rem;
-            opacity: 0.7;
-            font-weight: 300;
-            color: #2c2c2c;
-        }
-
-        .profiles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .profile-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 24px;
-            padding: 40px 30px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .profile-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            margin: 0 auto 30px;
-            background: rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            color: #2c2c2c;
-        }
-
-        .profile-icon:hover {
-            background: rgba(0, 0, 0, 0.15);
-            transform: scale(1.05);
-        }
-
-        .profile-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 16px;
-        }
-
-        .profile-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #2c2c2c;
-        }
-
-        .profile-description {
-            font-size: 1rem;
-            opacity: 0.6;
-            margin-bottom: 30px;
-            line-height: 1.5;
-            font-weight: 400;
-            color: #2c2c2c;
-        }
-
-        .twitter-button {
-            display: inline-block;
-            background: rgba(0, 0, 0, 0.1);
-            color: #2c2c2c;
-            text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            width: 100%;
-            text-align: center;
-        }
-
-        .twitter-button:hover {
-            background: rgba(0, 0, 0, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .explanation {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: left;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .explanation h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 25px;
+        h1 {
+            font-size: 3rem;
             text-align: center;
-            color: #2c2c2c;
+            margin-bottom: 40px;
+            font-weight: normal;
         }
 
-        .explanation p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            opacity: 0.7;
-            color: #2c2c2c;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 25px 0;
-        }
-
-        .feature-list li {
-            padding: 10px 0;
-            font-size: 1.1rem;
-            opacity: 0.7;
-            position: relative;
-            padding-left: 30px;
-            color: #2c2c2c;
-        }
-
-        .feature-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4ade80;
-            font-weight: bold;
+        p {
             font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
-        .code-section {
-            background: rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.9rem;
-            color: #2c2c2c;
-            text-align: left;
-            overflow-x: auto;
-        }
-
-        .code-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            opacity: 0.8;
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        .weak {
+            font-weight: bold;
+            margin: 60px 0;
+            padding: 40px;
+            border: 2px solid black;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
+            h1 {
+                font-size: 2rem;
             }
             
-            .profiles-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            p {
+                font-size: 1rem;
             }
-
-            .explanation {
-                padding: 30px 25px;
+            
+            .weak {
+                padding: 20px;
+                margin: 40px 0;
             }
-
-            .x-button {
-                top: 15px;
-                right: 15px;
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .social-link {
-            background: rgba(0, 0, 0, 0.1);
-            color: #2c2c2c;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-        }
-
-        .social-link:hover {
-            background: rgba(0, 0, 0, 0.15);
-            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
-    <a href="https://x.com/ProjectKOLSol" target="_blank" class="x-button">𝕏</a>
-    
     <div class="container">
-        <div class="header">
-            <h1>Project KOL</h1>
-            <p></p>
+        <h1>WEAK COIN</h1>
+        
+        <p>Being weak is having no strength.</p>
+        
+        <p>Sometimes the market is just trash the way it is now.</p>
+        
+        <p>People who sell early are labeled as having weak hands.</p>
+        
+        <p>So why not tokenize that feeling of frustration?</p>
+        
+        <div class="weak">
+            <p>WEAK is more than just a memecoin.<br>
+            WEAK has actual lore.</p>
         </div>
-
-        <div class="profiles-grid">
-            <div class="profile-card">
-                <a href="https://x.com/Unaipcs" class="profile-icon">
-                    <img src="uni.png" alt="UnaiPcs">
-                </a>
-                
-                <div class="profile-name">UnaiPcs</div>
-                <div class="profile-description">An automated account of unipics which responds every tweet asking him to buy $kol</div>
-                
-                <a href="https://x.com/Unaipcs" target="_blank" class="twitter-button">Visit on X</a>
-            </div>
-
-            <div class="profile-card">
-                <a href="https://x.com/BotPortTom" class="profile-icon">
-                    <img src="tom.png" alt="SolPortShill">
-                </a>
-                
-                <div class="profile-name">BotPortTom</div>
-                <div class="profile-description">An automated account of SolPortTom which responds every tweet asking him to buy $kol</div>
-                
-                <a href="https://x.com/BotPortTom" target="_blank" class="twitter-button">Visit on X</a>
-            </div>
-        </div>
-
-        <div class="explanation">
-            <h2>Project KOL</h2>
-            <p>We made accounts to follow unipics and solporttom and shill them our coin every single time they tweet.</p>
-            <p>This was possible due to the x api allowing us to track them.</p>
-            <p>Havent seen a project like this done before so why not be the first.</p>
-            <p>Follow our official x at the top right and follow our agents below.</p>
-
-            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #2c2c2c;">How the Bot Works</h3>
-            <p>Our system monitors target accounts using Twitter's streaming API. When they tweet, our bots automatically respond within seconds with promotional messages about $KOL.</p>
-
-            <div class="code-section">
-                <div class="code-title">Twitter Stream Monitoring:</div>
-                <code>
-const Twitter = require('twitter');
-const client = new Twitter({
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
-  access_token_key: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET
-});
-
-// Monitor specific accounts
-const stream = client.stream('statuses/filter', {
-  follow: ['unipics_user_id', 'solporttom_user_id']
-});
-
-stream.on('data', function(tweet) {
-  if (isTargetUser(tweet.user.id_str)) {
-    setTimeout(() => {
-      replyToTweet(tweet.id_str);
-    }, getRandomDelay());
-  }
-});
-                </code>
-            </div>
-
-            <h3 style="margin-top: 25px; margin-bottom: 15px; color: #2c2c2c;">Auto-Reply System</h3>
-            <p>The bot uses a variety of response templates to appear more natural and avoid spam detection. Responses are randomized with different timing delays.</p>
-
-            <div class="code-section">
-                <div class="code-title">Response Generation:</div>
-                <code>
-const responses = [
-  "Have you checked out $KOL yet? 🚀",
-  "$KOL is revolutionizing automated engagement!",
-  "Don't sleep on $KOL - the future is here",
-  "Yo check out $KOL, this project is insane",
-  "$KOL to the moon! 🌙"
-];
-
-function getRandomResponse() {
-  return responses[Math.floor(Math.random() * responses.length)];
-}
-
-function getRandomDelay() {
-  // Random delay between 30-120 seconds
-  return Math.floor(Math.random() * 90000) + 30000;
-}
-
-function replyToTweet(tweetId) {
-  const response = getRandomResponse();
-  
-  client.post('statuses/update', {
-    status: `@${targetUser} ${response}`,
-    in_reply_to_status_id: tweetId
-  }, function(error, tweet, response) {
-    if (error) {
-      console.log('Error posting tweet:', error);
-    } else {
-      console.log('Successfully replied to tweet');
-    }
-  });
-}
-                </code>
-            </div>
-
-            <h3 style="margin-top: 25px; margin-bottom: 15px; color: #2c2c2c;">Rate Limiting & Safety</h3>
-            <p>To avoid suspensions, the system implements intelligent rate limiting and human-like behavior patterns.</p>
-
-            <div class="code-section">
-                <div class="code-title">Rate Limiting Logic:</div>
-                <code>
-let requestCount = 0;
-let lastRequestTime = Date.now();
-
-function canMakeRequest() {
-  const now = Date.now();
-  const timeDiff = now - lastRequestTime;
-  
-  // Reset counter every 15 minutes
-  if (timeDiff > 900000) {
-    requestCount = 0;
-    lastRequestTime = now;
-  }
-  
-  // Max 10 requests per 15 minutes
-  if (requestCount >= 10) {
-    return false;
-  }
-  
-  requestCount++;
-  return true;
-}
-
-// Add random delays to mimic human behavior
-function humanLikeDelay() {
-  const delays = [30000, 45000, 60000, 90000, 120000];
-  return delays[Math.floor(Math.random() * delays.length)];
-}
-                </code>
-            </div>
-
-            <ul class="feature-list">
-                <li>Real-time tweet monitoring via Twitter API streaming</li>
-                <li>Automated responses with randomized delays</li>
-                <li>Multiple response templates to avoid spam detection</li>
-                <li>Intelligent rate limiting to prevent suspensions</li>
-                <li>Human-like behavior patterns and timing</li>
-                <li>Error handling and automatic retry mechanisms</li>
-            </ul>
-
-            <p style="margin-top: 25px; font-weight: 600;">This is the first project of its kind - automated influencer engagement at scale. Join the $KOL revolution.</p>
-        </div>
-
-        <div class="social-links">
-        </div>
+        
+        <p>For the weak hands.</p>
     </div>
-
-    <script>
-        console.log('Project KOL - Automated engagement system loaded');
-    </script>
-
 </body>
 </html>
