@@ -3,89 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRAZY COIN</title>
+    <title>Truth Terminal Bonk Destroyer</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: white;
-            font-family: 'Arial Black', Arial, sans-serif;
-            overflow: hidden;
-        }
-        .crazy-text {
-            font-size: 4rem;
-            font-weight: 900;
-            color: black;
-            text-shadow: 3px 3px 0px #fff, -1px -1px 0px #fff, 1px -1px 0px #fff, -1px 1px 0px #fff;
-            animation: shake 0.5s infinite;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            color: black;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: normal;
             font-family: Arial, sans-serif;
-        }
-        @keyframes shake {
-            0% { transform: translate(1px, 1px) rotate(0deg); }
-            10% { transform: translate(-1px, -2px) rotate(-1deg); }
-            20% { transform: translate(-3px, 0px) rotate(1deg); }
-            30% { transform: translate(3px, 2px) rotate(0deg); }
-            40% { transform: translate(1px, -1px) rotate(1deg); }
-            50% { transform: translate(-1px, 2px) rotate(-1deg); }
-            60% { transform: translate(-3px, 1px) rotate(0deg); }
-            70% { transform: translate(3px, 1px) rotate(-1deg); }
-            80% { transform: translate(-1px, -1px) rotate(1deg); }
-            90% { transform: translate(1px, 2px) rotate(0deg); }
-            100% { transform: translate(1px, -2px) rotate(-1deg); }
-        }
-        .follow-button {
-            background: black;
-            color: white;
-            border: 2px solid black;
-            padding: 15px 30px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-        .follow-button:hover {
-            background: white;
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
             color: black;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            width: 300px;
+            height: 300px;
             border: 2px solid black;
-            transform: scale(1.1);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: white;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        
+        .bonk-destroyer-section {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+            align-items: start;
+            margin-bottom: 40px;
         }
-        @media (max-width: 768px) {
-            .crazy-text {
-                font-size: 2.5rem;
+        
+        .bonk-destroyer-content {
+            text-align: left;
+        }
+        
+        .project-title {
+            color: black;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+        }
+        
+        .project-description {
+            color: black;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .image-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .main-text {
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1.8;
+            margin: 40px 0;
+            border: 2px solid black;
+            padding: 20px;
+        }
+        
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            align-items: start;
+        }
+        
+        @media (max-width: 1200px) {
+            .bonk-destroyer-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
-            .follow-button {
-                font-size: 1.2rem;
-                padding: 12px 25px;
+            
+            .bottom-section {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .image-section {
+                max-width: 400px;
+                margin: 10px auto;
             }
         }
     </style>
 </head>
 <body>
-    <div class="crazy-text">CRAZY COIN</div>
-    <div class="subtitle">there is no lore or narrative the coin is simply crazy</div>
-    <button class="follow-button" onclick="window.open('https://x.com/ThisIsCrazyLol_', '_blank')">
-        Follow our crazy X 
-    </button>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div id="logoPlaceholder" style="font-size: 24px; font-weight: bold;">The Magical Penis</div>
+            </div>
+        </div>
+        
+        <!-- Bonk Destroyer section directly under Truth Terminal box -->
+        <div class="bonk-destroyer-section">
+            <div class="bonk-destroyer-content">
+                <div class="project-title">
+                    What is  The Magical Penis?
+                </div>
+                <div class="project-description">
+                    • Inside Truth Terminal's backroom <br><br>
+                    • There is a being named "the magical penis"<br><br>
+                    • This being destroys bonk for constantly attacking truth terminal with the  bat<br><br>
+                    • This act's as the perfect pve runner for pumpfun - the bonk destroyer<br><br>
+                </div>
+            </div>
+            
+            <!-- Image on the right side -->
+            <div class="image-section">
+                <div id="imageSlot1" style="width: 100%; height: 300px; border: 2px solid black; display: flex; align-items: center; justify-content: center; background: white;">
+                    <img src="hello.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Hello Image">
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-section">
+            <div class="main-text">
+                Truth Terminal Lore:<br>
+                The backroom contains the legendary Magical Penis bonk destroyer that automatically targets and eliminates bonk tokens threatening system stability. This creates a unique PvE experience where players interact with the ecosystem's self-regulation mechanisms.
+            </div>
+                        </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple functionality to allow manual image updates to the slots
+        function updateSlot(slotId, imageSrc) {
+            const slot = document.getElementById(slotId);
+            if (imageSrc) {
+                slot.innerHTML = `<img src="${imageSrc}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            } else {
+                slot.innerHTML = '<span>Image Slot</span>';
+            }
+        }
+    </script>
 </body>
 </html>
