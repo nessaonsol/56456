@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Shill</title>
+    <title>Project KOL</title>
     <style>
         * {
             margin: 0;
@@ -75,7 +75,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .profile-card {
@@ -124,15 +124,6 @@
             border-radius: 16px;
         }
 
-        .profile-icon-text {
-            font-size: 0.9rem;
-            font-weight: 500;
-            opacity: 0.6;
-            text-align: center;
-            padding: 0 10px;
-            color: #2c2c2c;
-        }
-
         .profile-name {
             font-size: 1.5rem;
             font-weight: 600;
@@ -166,10 +157,6 @@
         .twitter-button:hover {
             background: rgba(0, 0, 0, 0.15);
             transform: translateY(-2px);
-        }
-
-        .image-input {
-            display: none;
         }
 
         .explanation {
@@ -222,6 +209,26 @@
             font-size: 1.2rem;
         }
 
+        .code-section {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            color: #2c2c2c;
+            text-align: left;
+            overflow-x: auto;
+        }
+
+        .code-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.5rem;
@@ -270,43 +277,160 @@
     </style>
 </head>
 <body>
-    <a href="https://x.com/ProjectShill" target="_blank" class="x-button">𝕏</a>
+    <a href="https://x.com/ProjectKOL" target="_blank" class="x-button">𝕏</a>
     
     <div class="container">
-
-        <div class="explanation">
-            <h2>Project Shill</h2>
-            <p>We made accounts to follow unipics and solporttom and shill them our coin every single time they tweet.</p>
-            <p>This was possible due to the x api allowing us to track them.</p>
-            <p>Havent seen a project like this done before so why not be the first.</p>
-            <p>Follow our official x at the top right and follow our agents below.</p>
-            
-            <ul class="feature-list">
-            </ul>
+        <div class="header">
+            <h1>Project KOL</h1>
+            <p></p>
         </div>
 
         <div class="profiles-grid">
             <div class="profile-card">
-                <a href="https://x.com/SolPortShill" class="profile-icon">
-                    <img src="uni.png" alt="Conscience">
+                <a href="https://x.com/TheUniShill" class="profile-icon">
+                    <img src="uni.png" alt="UniShill">
                 </a>
                 
                 <div class="profile-name">UniShill</div>
-                <div class="profile-description">An automated account of unipics which responds every tweet asking him to buy $shill</div>
+                <div class="profile-description">An automated account of unipics which responds every tweet asking him to buy $kol</div>
                 
                 <a href="https://x.com/TheUniShill" target="_blank" class="twitter-button">Visit on X</a>
             </div>
 
             <div class="profile-card">
-                <a href="#" class="profile-icon">
-                    <img src="tom.png" alt="Assistant">
+                <a href="https://x.com/SolPortShill" class="profile-icon">
+                    <img src="tom.png" alt="SolPortShill">
                 </a>
                 
                 <div class="profile-name">SolPortShill</div>
-                <div class="profile-description">An automated account of SolPortTom which responds every tweet asking him to buy $shill</div>
+                <div class="profile-description">An automated account of SolPortTom which responds every tweet asking him to buy $kol</div>
                 
                 <a href="https://x.com/SolPortShill" target="_blank" class="twitter-button">Visit on X</a>
             </div>
+        </div>
+
+        <div class="explanation">
+            <h2>Project KOL</h2>
+            <p>We made accounts to follow unipics and solporttom and shill them our coin every single time they tweet.</p>
+            <p>This was possible due to the x api allowing us to track them.</p>
+            <p>Havent seen a project like this done before so why not be the first.</p>
+            <p>Follow our official x at the top right and follow our agents below.</p>
+
+            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #2c2c2c;">How the Bot Works</h3>
+            <p>Our system monitors target accounts using Twitter's streaming API. When they tweet, our bots automatically respond within seconds with promotional messages about $KOL.</p>
+
+            <div class="code-section">
+                <div class="code-title">Twitter Stream Monitoring:</div>
+                <code>
+const Twitter = require('twitter');
+const client = new Twitter({
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.ACCESS_TOKEN,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET
+});
+
+// Monitor specific accounts
+const stream = client.stream('statuses/filter', {
+  follow: ['unipics_user_id', 'solporttom_user_id']
+});
+
+stream.on('data', function(tweet) {
+  if (isTargetUser(tweet.user.id_str)) {
+    setTimeout(() => {
+      replyToTweet(tweet.id_str);
+    }, getRandomDelay());
+  }
+});
+                </code>
+            </div>
+
+            <h3 style="margin-top: 25px; margin-bottom: 15px; color: #2c2c2c;">Auto-Reply System</h3>
+            <p>The bot uses a variety of response templates to appear more natural and avoid spam detection. Responses are randomized with different timing delays.</p>
+
+            <div class="code-section">
+                <div class="code-title">Response Generation:</div>
+                <code>
+const responses = [
+  "Have you checked out $KOL yet? 🚀",
+  "$KOL is revolutionizing automated engagement!",
+  "Don't sleep on $KOL - the future is here",
+  "Yo check out $KOL, this project is insane",
+  "$KOL to the moon! 🌙"
+];
+
+function getRandomResponse() {
+  return responses[Math.floor(Math.random() * responses.length)];
+}
+
+function getRandomDelay() {
+  // Random delay between 30-120 seconds
+  return Math.floor(Math.random() * 90000) + 30000;
+}
+
+function replyToTweet(tweetId) {
+  const response = getRandomResponse();
+  
+  client.post('statuses/update', {
+    status: `@${targetUser} ${response}`,
+    in_reply_to_status_id: tweetId
+  }, function(error, tweet, response) {
+    if (error) {
+      console.log('Error posting tweet:', error);
+    } else {
+      console.log('Successfully replied to tweet');
+    }
+  });
+}
+                </code>
+            </div>
+
+            <h3 style="margin-top: 25px; margin-bottom: 15px; color: #2c2c2c;">Rate Limiting & Safety</h3>
+            <p>To avoid suspensions, the system implements intelligent rate limiting and human-like behavior patterns.</p>
+
+            <div class="code-section">
+                <div class="code-title">Rate Limiting Logic:</div>
+                <code>
+let requestCount = 0;
+let lastRequestTime = Date.now();
+
+function canMakeRequest() {
+  const now = Date.now();
+  const timeDiff = now - lastRequestTime;
+  
+  // Reset counter every 15 minutes
+  if (timeDiff > 900000) {
+    requestCount = 0;
+    lastRequestTime = now;
+  }
+  
+  // Max 10 requests per 15 minutes
+  if (requestCount >= 10) {
+    return false;
+  }
+  
+  requestCount++;
+  return true;
+}
+
+// Add random delays to mimic human behavior
+function humanLikeDelay() {
+  const delays = [30000, 45000, 60000, 90000, 120000];
+  return delays[Math.floor(Math.random() * delays.length)];
+}
+                </code>
+            </div>
+
+            <ul class="feature-list">
+                <li>Real-time tweet monitoring via Twitter API streaming</li>
+                <li>Automated responses with randomized delays</li>
+                <li>Multiple response templates to avoid spam detection</li>
+                <li>Intelligent rate limiting to prevent suspensions</li>
+                <li>Human-like behavior patterns and timing</li>
+                <li>Error handling and automatic retry mechanisms</li>
+            </ul>
+
+            <p style="margin-top: 25px; font-weight: 600;">This is the first project of its kind - automated influencer engagement at scale. Join the $KOL revolution.</p>
         </div>
 
         <div class="social-links">
@@ -314,7 +438,8 @@
     </div>
 
     <script>
-        console.log('Automated Profiles loaded');
+        console.log('Project KOL - Automated engagement system loaded');
     </script>
+
 </body>
 </html>
