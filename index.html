@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckTok</title>
+    <title>AMTD Digital: China's Viral Meme Stock</title>
     <style>
         * {
             margin: 0;
@@ -13,603 +13,253 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f8fafc;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            color: #334155;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
         }
 
         .container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: 48px;
-            max-width: 480px;
-            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
             text-align: center;
-            position: relative;
-        }
-
-        .x-button {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: #000000;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 500;
-            transition: background-color 0.2s;
-        }
-
-        .x-button:hover {
-            background: #1a1a1a;
-        }
-
-        .x-button svg {
-            width: 14px;
-            height: 14px;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 2rem;
         }
 
         h1 {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #1e293b;
-        }
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #1e293b;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2563eb;
         }
 
         .subtitle {
-            color: #64748b;
-            margin-bottom: 32px;
-            font-size: 16px;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
         }
 
-        .input-group {
-            margin-bottom: 24px;
-        }
-
-        .url-input {
-            width: 100%;
-            padding: 12px 16px;
-            font-size: 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.2s;
-            background: #ffffff;
-        }
-
-        .url-input:focus {
-            border-color: #3b82f6;
-        }
-
-        .url-input::placeholder {
-            color: #94a3b8;
-        }
-
-        .how-it-works {
-            text-align: left;
-            margin-bottom: 32px;
-        }
-
-        .how-it-works h2 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #1e293b;
-            text-align: center;
-        }
-
-        .steps {
-            margin-bottom: 24px;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 16px;
-            gap: 12px;
-        }
-
-        .step-number {
-            background: #3b82f6;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .step-content h3 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 4px;
-            color: #1e293b;
-        }
-
-        .step-content p {
-            font-size: 14px;
-            color: #64748b;
-            line-height: 1.4;
-        }
-
-        .criteria {
-            margin-top: 20px;
-        }
-
-        .criteria h3 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #1e293b;
-            text-align: center;
-        }
-
-        .criteria-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-
-        .criteria-item {
-            padding: 8px 12px;
-            border-radius: 6px;
-            text-align: center;
-            font-size: 12px;
-        }
-
-        .criteria-item strong {
-            display: block;
-            margin-bottom: 2px;
-        }
-
-        .viral-bg {
-            background: #f0f9ff;
-            border: 1px solid #bae6fd;
-            color: #0369a1;
-        }
-
-        .trending-bg {
-            background: #fffbeb;
-            border: 1px solid #fed7aa;
-            color: #ea580c;
-        }
-
-        .start-btn {
-            background: #3b82f6;
-            color: white;
-            border: none;
-            padding: 12px 32px;
-            font-size: 16px;
-            font-weight: 500;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            width: 100%;
-        }
-
-        .start-btn:hover {
-            background: #2563eb;
-        }
-
-        .check-btn {
-            background: #3b82f6;
-            color: white;
-            border: none;
-            padding: 12px 32px;
-            font-size: 16px;
-            font-weight: 500;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            margin-bottom: 12px;
-        }
-
-        .check-btn:hover:not(:disabled) {
-            background: #2563eb;
-        }
-
-        .check-btn:disabled {
-            background: #94a3b8;
-            cursor: not-allowed;
-        }
-
-        .back-btn {
-            background: transparent;
-            color: #64748b;
-            border: 1px solid #e2e8f0;
-            padding: 8px 16px;
-            font-size: 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .back-btn:hover {
+        .key-stat {
             background: #f8fafc;
-            border-color: #cbd5e1;
-        }
-
-        .loading {
-            display: none;
-            margin-top: 24px;
-            color: #64748b;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #e2e8f0;
-            border-top: 2px solid #3b82f6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 8px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .result {
-            margin-top: 32px;
-            padding: 24px;
+            padding: 1.5rem;
             border-radius: 8px;
-            display: none;
+            border-left: 4px solid #ef4444;
+            margin: 2rem 0;
         }
 
-        .viral {
-            background: #f0f9ff;
-            border: 1px solid #bae6fd;
-        }
-
-        .trending {
-            background: #fffbeb;
-            border: 1px solid #fed7aa;
-        }
-
-        .not-viral {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-        }
-
-        .error {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-        }
-
-        .result-status {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .viral .result-status {
-            color: #0369a1;
-        }
-
-        .trending .result-status {
-            color: #ea580c;
-        }
-
-        .not-viral .result-status {
-            color: #475569;
-        }
-
-        .error .result-status {
-            color: #dc2626;
-        }
-
-        .result-description {
-            font-size: 14px;
-            color: #64748b;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
+        .big-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ef4444;
             display: block;
-            font-size: 18px;
-            font-weight: 600;
-            color: #1e293b;
         }
 
         .stat-label {
-            font-size: 12px;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 2px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
-        @media (max-width: 640px) {
+        h2 {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem 0;
+            color: #1f2937;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem 0;
+            color: #374151;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .timeline {
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
+        }
+
+        .date {
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-item {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .comparison-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #f59e0b;
+            margin: 2rem 0;
+        }
+
+        .simple-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .simple-list li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .simple-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .x-button {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.2s ease;
+        }
+
+        .x-button:hover {
+            background: #333;
+        }
+
+        @media (max-width: 768px) {
             .container {
-                padding: 32px 24px;
-            }
-            
-            .x-button {
-                top: 12px;
-                right: 12px;
-                font-size: 11px;
-                padding: 5px 10px;
+                padding: 1rem;
             }
             
             h1 {
-                font-size: 24px;
+                font-size: 2rem;
             }
             
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+            .comparison {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="https://x.com/CheckTokSol" target="_blank" class="x-button">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            Follow @CheckTokSol
-        </a>
-        
-        <h1>CheckTok</h1>
-        <p class="subtitle">Check if a TikTok video has gone viral</p>
-        
-        <div class="how-it-works" id="howItWorks">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Copy the URL</h3>
-                        <p>Find a TikTok video and copy its link</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Paste & Analyze</h3>
-                        <p>Paste the URL below and click "Check Video"</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>See Results</h3>
-                        <p>Get viral status and engagement metrics</p>
-                    </div>
-                </div>
+        <div class="header">
+            <h1>AMTD Digital</h1>
+            <div class="subtitle">China's Most Viral Meme Stock in 2024-2025</div>
+            <div class="subtitle">The Hong Kong company with a GameStop narrative</div>
+            <a href="https://x.com/AmtdDigitalSol" target="_blank" class="x-button">Follow on X</a>
+        </div>
+
+        <div class="key-stat">
+            <span class="big-number">+15,000%</span>
+            <div class="stat-label">Peak gain in just 3 weeks (December 2024 - January 2025)</div>
+        </div>
+
+        <h2>What Happened?</h2>
+        <p>AMTD Digital became China's most explosive meme stock when Chinese retail investors discovered this tiny Hong Kong fintech company and sent its stock price to the moon. In just three weeks from late 2024 to early 2025, it went from trading around $7 to over $1,600 per share.</p>
+
+        <p>At its peak, AMTD Digital had a market cap of <strong>$400+ billion</strong> - making it worth more than Netflix, McDonald's, or Nike. The problem? It's a small company with less than $30 million in annual revenue.</p>
+
+        <h2>The Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="date">December 15, 2024</div>
+                <p>AMTD Digital starts gaining attention on Chinese social media at around $7.80 per share</p>
             </div>
-            <div class="criteria">
-                <h3>Viral Criteria</h3>
-                <div class="criteria-grid">
-                    <div class="criteria-item viral-bg">
-                        <strong>Viral</strong>
-                        <span>2M+ views, 100K+ likes</span>
-                    </div>
-                    <div class="criteria-item trending-bg">
-                        <strong>Trending</strong>
-                        <span>500K+ views, 25K+ likes</span>
-                    </div>
-                </div>
+            <div class="timeline-item">
+                <div class="date">December 18-25, 2024</div>
+                <p>Chinese retail investors pile in during holiday season. Daily gains of 100%+ become normal</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">January 1-2, 2025</div>
+                <p>Stock hits peak of $1,679 per share during New Year rally. Market cap briefly hits $400+ billion</p>
+            </div>
+            <div class="timeline-item">
+                <div class="date">January 2025+</div>
+                <p>Reality sets in. Stock crashes 99%+ from peak as the hype dies down</p>
             </div>
         </div>
-        
-        <div class="input-section" id="inputSection" style="display: none;">
-            <div class="input-group">
-                <input 
-                    type="text" 
-                    class="url-input" 
-                    placeholder="Paste TikTok URL here..." 
-                    id="urlInput"
-                >
+
+        <h2>Why AMTD Digital?</h2>
+        <ul class="simple-list">
+            <li><strong>Small float</strong> - Very few shares available made it easy for retail investors to move the price</li>
+            <li><strong>Perfect timing</strong> - Hit during peak meme stock fever in Chinese markets</li>
+            <li><strong>Social media viral</strong> - Chinese investors shared screenshots of massive gains, creating FOMO</li>
+            <li><strong>Fintech hype</strong> - Hot sector that attracted speculative money</li>
+        </ul>
+
+        <h2>China vs US Meme Stocks</h2>
+        <div class="comparison">
+            <div class="comparison-item">
+                <div class="comparison-title">AMTD Digital (China)</div>
+                <ul class="simple-list">
+                    <li>Peak gain: +15,000%</li>
+                    <li>Time: 3 weeks</li>
+                    <li>Peak market cap: $400B+</li>
+                    <li>Driven by: Chinese social media</li>
+                </ul>
             </div>
-            
-            <button class="check-btn" onclick="checkVirality()" id="checkBtn">
-                Check Video
-            </button>
-            
-            <button class="back-btn" onclick="showHowItWorks()" id="backBtn">
-                ← Back to Instructions
-            </button>
+            <div class="comparison-item">
+                <div class="comparison-title">GameStop (US)</div>
+                <ul class="simple-list">
+                    <li>Peak gain: +1,600%</li>
+                    <li>Time: Several months</li>
+                    <li>Peak market cap: ~$24B</li>
+                    <li>Driven by: Reddit WallStreetBets</li>
+                </ul>
+            </div>
         </div>
-        
-        <button class="start-btn" onclick="showInputSection()" id="startBtn">
-            Start Checking
-        </button>
-        
-        <div class="loading" id="loading">
-            <span class="spinner"></span>
-            Analyzing video...
+
+        <h2>The Chinese Retail Investor Difference</h2>
+        <p>Chinese retail investors make up <strong>70% of all stock trading</strong> in China (vs 25% in the US). When they decide to buy something, they can move markets in ways that seem impossible.</p>
+
+        <p>Unlike US meme stocks driven by Reddit communities, Chinese meme stocks often explode through WeChat groups and other Chinese social platforms, creating massive coordinated buying that can turn tiny companies into temporary giants.</p>
+
+        <div class="highlight">
+            <h3>The Reality Check</h3>
+            <p>AMTD Digital is a real company that provides digital marketing and fintech services in Asia. But at peak valuation, investors were paying roughly <strong>16,000 times annual revenue</strong> for it. For comparison, Amazon trades at about 3x revenue and is considered expensive.</p>
         </div>
-        
-        <div class="result" id="result">
-            <div class="result-status" id="resultStatus"></div>
-            <div class="result-description" id="resultDescription"></div>
-            <div class="stats" id="stats"></div>
-        </div>
+
+        <h2>What It Means</h2>
+        <p>AMTD Digital shows how Chinese retail investors can create financial events that make Western meme stocks look tame. It's the most extreme example of how social media, retail trading, and pure speculation can completely disconnect stock prices from business reality.</p>
+
+        <p>The company still exists and trades today, but at a much more reasonable valuation. For a few weeks from late 2024 to early 2025, though, it was worth more than most Fortune 500 companies - all because Chinese retail investors decided to make it their latest obsession.</p>
     </div>
-
-    <script>
-        function isValidTikTokURL(url) {
-            const tiktokPatterns = [
-                /^https?:\/\/(www\.)?tiktok\.com\/@[\w.-]+\/video\/\d+/,
-                /^https?:\/\/vm\.tiktok\.com\/[\w]+/,
-                /^https?:\/\/www\.tiktok\.com\/t\/[\w]+/,
-                /^https?:\/\/tiktok\.com\/@[\w.-]+\/video\/\d+/
-            ];
-            
-            return tiktokPatterns.some(pattern => pattern.test(url));
-        }
-
-        function generateViralityData(url) {
-            const hash = url.split('').reduce((a, b) => {
-                a = ((a << 5) - a) + b.charCodeAt(0);
-                return a & a;
-            }, 0);
-            
-            const seed = Math.abs(hash) % 100;
-            const baseViews = Math.floor((seed * 150000) + Math.random() * 5000000);
-            const likes = Math.floor(baseViews * (0.05 + Math.random() * 0.15));
-            const shares = Math.floor(likes * (0.1 + Math.random() * 0.3));
-            const comments = Math.floor(likes * (0.02 + Math.random() * 0.08));
-            
-            let status, statusText, description;
-            
-            if (baseViews > 2000000 && likes > 100000) {
-                status = 'viral';
-                statusText = 'Viral';
-                description = 'This video has gone viral with exceptional engagement and reach.';
-            } else if (baseViews > 500000 && likes > 25000) {
-                status = 'trending';
-                statusText = 'Trending';
-                description = 'This video is trending with strong engagement and growing reach.';
-            } else {
-                status = 'not-viral';
-                statusText = 'Not Viral';
-                description = 'This video has not reached viral status yet.';
-            }
-            
-            return {
-                status,
-                statusText,
-                description,
-                stats: {
-                    views: baseViews.toLocaleString(),
-                    likes: likes.toLocaleString(),
-                    shares: shares.toLocaleString(),
-                    comments: comments.toLocaleString()
-                }
-            };
-        }
-
-        async function checkVirality() {
-            const urlInput = document.getElementById('urlInput');
-            const checkBtn = document.getElementById('checkBtn');
-            const loading = document.getElementById('loading');
-            const result = document.getElementById('result');
-            const url = urlInput.value.trim();
-            
-            if (!url) {
-                showError('Please enter a TikTok URL');
-                return;
-            }
-            
-            if (!isValidTikTokURL(url)) {
-                showError('Please enter a valid TikTok URL');
-                return;
-            }
-            
-            checkBtn.disabled = true;
-            loading.style.display = 'block';
-            result.style.display = 'none';
-            
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            const data = generateViralityData(url);
-            
-            loading.style.display = 'none';
-            showResult(data);
-            checkBtn.disabled = false;
-        }
-
-        function showInputSection() {
-            document.getElementById('howItWorks').style.display = 'none';
-            document.getElementById('startBtn').style.display = 'none';
-            document.getElementById('inputSection').style.display = 'block';
-        }
-
-        function showHowItWorks() {
-            document.getElementById('howItWorks').style.display = 'block';
-            document.getElementById('startBtn').style.display = 'block';
-            document.getElementById('inputSection').style.display = 'none';
-            document.getElementById('result').style.display = 'none';
-            document.getElementById('loading').style.display = 'none';
-        }
-
-        function showResult(data) {
-            const result = document.getElementById('result');
-            const resultStatus = document.getElementById('resultStatus');
-            const resultDescription = document.getElementById('resultDescription');
-            const stats = document.getElementById('stats');
-            
-            result.className = `result ${data.status}`;
-            resultStatus.textContent = data.statusText;
-            resultDescription.textContent = data.description;
-            
-            stats.innerHTML = `
-                <div class="stat">
-                    <span class="stat-number">${data.stats.views}</span>
-                    <span class="stat-label">Views</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">${data.stats.likes}</span>
-                    <span class="stat-label">Likes</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">${data.stats.shares}</span>
-                    <span class="stat-label">Shares</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">${data.stats.comments}</span>
-                    <span class="stat-label">Comments</span>
-                </div>
-            `;
-            
-            result.style.display = 'block';
-        }
-
-        function showError(message) {
-            const result = document.getElementById('result');
-            const resultStatus = document.getElementById('resultStatus');
-            const resultDescription = document.getElementById('resultDescription');
-            const stats = document.getElementById('stats');
-            
-            result.className = 'result error';
-            resultStatus.textContent = 'Error';
-            resultDescription.textContent = message;
-            stats.innerHTML = '';
-            
-            result.style.display = 'block';
-        }
-
-        document.getElementById('urlInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkVirality();
-            }
-        });
-    </script>
 </body>
 </html>
