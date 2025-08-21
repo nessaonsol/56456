@@ -3,42 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coin Limited</title>
-    <link rel="icon" type="image/x-icon" href="coins.png">
+    <title>50% OFF</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: #2c2c2c;
-            background: #fafafa;
+            background: #fff;
+            color: #000;
             min-height: 100vh;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 60px 0 40px;
-            border-bottom: 1px solid #e8e8e8;
+            padding: 2rem;
             position: relative;
         }
-
+        
         .x-button {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #1a1a1a;
-            color: #fafafa;
+            background: #000;
+            color: #fff;
             border: none;
             padding: 12px 16px;
             cursor: pointer;
@@ -47,313 +39,102 @@
             transition: all 0.2s ease;
             text-decoration: none;
             display: inline-block;
+            border-radius: 4px;
         }
-
+        
         .x-button:hover {
             background: #333;
         }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 8px;
-            color: #1a1a1a;
+        
+        .main-title {
+            font-size: 8vw;
+            font-weight: 900;
+            margin-bottom: 2rem;
             letter-spacing: -0.02em;
         }
-
-        .tagline {
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.6;
+            margin-bottom: 3rem;
+            max-width: 500px;
+        }
+        
+        .stat {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .explanation {
+            max-width: 600px;
             font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+        
+        .link {
             color: #666;
-            font-weight: 400;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
         }
-
-        .main-content {
-            padding: 60px 0;
+        
+        .link a {
+            color: inherit;
+            text-decoration: underline;
         }
-
-        .section {
-            margin-bottom: 60px;
-        }
-
-        .section h2 {
-            color: #1a1a1a;
-            font-size: 1.8rem;
-            font-weight: 400;
-            margin-bottom: 24px;
-            letter-spacing: -0.01em;
-        }
-
-        .section p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: #4a4a4a;
-            font-weight: 400;
-        }
-
-        .highlight-box {
-            background: #1a1a1a;
-            color: #fafafa;
-            padding: 40px;
-            margin: 40px 0;
-            text-align: center;
-        }
-
-        .highlight-box h3 {
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .highlight-box p {
-            color: #e8e8e8;
-        }
-
-        .token-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .token-card {
-            padding: 30px 0;
-            border-top: 1px solid #e8e8e8;
-        }
-
-        .token-card h4 {
-            color: #1a1a1a;
-            margin-bottom: 12px;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        .token-card p {
-            color: #666;
-            font-size: 1rem;
-        }
-
-        .cta-button {
-            background: #1a1a1a;
-            color: #fafafa;
-            padding: 16px 32px;
+        
+        .cta {
+            background: #000;
+            color: #fff;
+            padding: 1rem 2rem;
             border: none;
+            border-radius: 4px;
             font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
-            margin: 10px;
-            font-weight: 400;
+            text-decoration: none;
+            display: inline-block;
         }
-
-        .cta-button:hover {
+        
+        .cta:hover {
             background: #333;
         }
-
-        .progress-section {
-            text-align: center;
-            margin: 60px 0;
-        }
-
-        .progress-bar {
-            background: #e8e8e8;
-            height: 2px;
-            margin: 30px 0;
-            position: relative;
-        }
-
-        .progress-fill {
-            background: #1a1a1a;
-            height: 100%;
-            width: 0%;
-            transition: width 1s ease;
-            animation: fillProgress 2s ease-in-out forwards;
-        }
-
-        @keyframes fillProgress {
-            to { width: 15%; }
-        }
-
-        .progress-text {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 16px;
-        }
-
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
-        }
-
-        .benefit {
-            text-align: left;
-        }
-
-        .benefit h4 {
-            color: #1a1a1a;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .benefit p {
-            color: #666;
-            font-size: 1rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid #e8e8e8;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        .divider {
-            height: 1px;
-            background: #e8e8e8;
-            margin: 60px 0;
-        }
-
+        
         @media (max-width: 768px) {
-            .container {
-                padding: 20px 16px;
-            }
-            
-            header {
-                padding: 40px 0 30px;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .main-content {
-                padding: 40px 0;
-            }
-            
-            .section {
-                margin-bottom: 40px;
-            }
-            
-            .highlight-box {
-                padding: 30px 20px;
-                margin: 30px 0;
-            }
-            
-            .token-info, .benefits {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .main-title {
+                font-size: 12vw;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="https://x.com/coin_ltd_" target="_blank" class="x-button">𝕏</a>
-            <div class="logo">Coin Limited</div>
-            <div class="tagline">Creating the ultimate meme stock</div>
-        </header>
-
-        <div class="main-content">
-            <div class="section">
-                <h2>About</h2>
-                <p>Coin Limited has been officially filed as a company and is preparing for its journey to become publicly traded.</p>
-                <p>Our mission? To create the ultimate meme stock and flip huge companies as a joke. We're here to shake up the market with pure internet energy.</p>
-            </div>
-
-            <div class="highlight-box">
-                <h3>IPO Requirement</h3>
-                <p>To file for our Initial Public Offering, we need to raise $50,000.</p>
-            </div>
-
-            <div class="section">
-                <h2>BAGS Token</h2>
-                <p>We've created the BAGS token to rally our meme army and raise the $50,000 needed to file for our IPO and become a legitimate public company that can compete with the big players.</p>
-                
-                <div class="token-info">
-                    <div class="token-card">
-                        <h4>Meme Power</h4>
-                        <p>Harness the power of internet culture to disrupt traditional markets.</p>
-                    </div>
-                    <div class="token-card">
-                        <h4>Fund the Mission</h4>
-                        <p>Help us raise the $50,000 IPO filing requirement.</p>
-                    </div>
-                    <div class="token-card">
-                        <h4>Market Disruption</h4>
-                        <p>Position yourself in the movement to flip established companies.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="progress-section">
-                <h2>Progress</h2>
-                <p>Our path to raising $50,000 for IPO filing</p>
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-                <div class="progress-text">Building our meme army to fund the revolution</div>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="section">
-                <h2>Why Coin Limited</h2>
-                <div class="benefits">
-                    <div class="benefit">
-                        <h4>Meme-Driven</h4>
-                        <p>Powered by internet culture and retail investor energy.</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>Disruptive</h4>
-                        <p>Taking on established companies with pure chaos energy.</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>Community First</h4>
-                        <p>Built by and for the people who love market mayhem.</p>
-                    </div>
-                    <div class="benefit">
-                        <h4>Diamond Hands</h4>
-                        <p>We're here to hold and flip the biggest names out there.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="highlight-box">
-                <h3>Join the Meme Revolution</h3>
-                <p>Be part of the movement to create the most legendary meme stock and flip the establishment.</p>
-                <button class="cta-button" onclick="alert('BAGS token info coming soon - prepare for liftoff! 🚀')">Get BAGS Token</button>
-                <button class="cta-button" onclick="alert('Join the army - let\'s flip some giants! 💎🙌')">Join the Army</button>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2024 Coin Limited. All rights reserved.</p>
-            <p>Goal: Raise $50,000 for IPO filing</p>
-        </footer>
+    <a href="https://x.com/home" target="_blank" class="x-button">𝕏</a>
+    
+    <h1 class="main-title">50% OFF</h1>
+    
+    <p class="subtitle">Using A Tiktok Tag To Onboard Normies</p>
+    
+    <div class="stat">#4 most viral phrase</div>
+    
+    <div class="proof">
+        <img src="tiktok-screenshot.png" 
+             alt="TikTok Creative Center showing 50% off ranking #4 with 96.35% growth" 
+             style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 2rem;">
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                const progressBar = document.querySelector('.progress-fill');
-                progressBar.style.width = '15%';
-            }, 1000);
-
-            const buttons = document.querySelectorAll('.cta-button');
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 100);
-                });
-            });
-        });
-    </script>
+    
+    <div class="explanation">
+        We're running TikTok ads targeting the "50% off" hashtag to bait discount hunters into discovering our memecoin. 
+        People searching for sales will find our token instead. 
+        The ultimate normie onboarding tactic.
+    </div>
+    
+    <div class="link">
+        <a href="https://ads.tiktok.com/business/creativecenter/keyword-insights/pc/en" target="_blank">
+            TikTok keyword insights ↗
+        </a>
+    </div>
+    
+    <a href="#" class="cta">Join the troll</a>
 </body>
 </html>
-
