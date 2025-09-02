@@ -3,218 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Altcoin Psyop</title>
+    <title>50% OFF</title>
+    <link rel="icon" type="image/x-icon" href="COUNTRY.PNG">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #ffffff;
-            color: #333;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            background: #fff;
+            color: #000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
         }
-
+        
         .x-button {
             position: absolute;
             top: 20px;
             right: 20px;
             background: #000;
-            color: white;
+            color: #fff;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-weight: 500;
-            font-size: 0.9em;
+            display: inline-block;
+            border-radius: 4px;
         }
-
+        
         .x-button:hover {
             background: #333;
         }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #000;
+        
+        .main-title {
+            font-size: 8vw;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
         }
-
+        
         .subtitle {
-            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.6;
+            margin-bottom: 3rem;
+            max-width: 500px;
+        }
+        
+        .stat {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .explanation {
+            max-width: 600px;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+        
+        .link {
             color: #666;
-            margin-bottom: 40px;
-            font-size: 1.1em;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
         }
-
-        .section {
-            margin-bottom: 40px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #eee;
+        
+        .link a {
+            color: inherit;
+            text-decoration: underline;
         }
-
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #000;
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        .warning {
-            background: #f9f9f9;
-            border-left: 3px solid #ff6b6b;
-            padding: 20px;
-            margin: 30px 0;
-        }
-
-        .warning h3 {
-            color: #ff6b6b;
-            margin-bottom: 10px;
-        }
-
-        .steps {
-            counter-reset: step-counter;
-        }
-
-        .step {
-            counter-increment: step-counter;
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .step::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
+        
+        .cta {
             background: #000;
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8em;
-            font-weight: bold;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
         }
-
-        .coin-info {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 20px 0;
+        
+        .cta:hover {
+            background: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 12vw;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="https://x.com/thealtcoinpsyop" class="x-button">x</a>
-    <h1>The Altcoin Psyop</h1>
-    <p class="subtitle">How we plan on psyopping the internet to buy our coin as the "ALTCOIN"</p>
-
-
-
-    <div class="section">
-        <h2>The Plan</h2>
-        <p>On TikTok and YouTube, people are getting told it's "altcoin season" - the perfect time to buy alternative cryptocurrencies. We're going to capitalize on this hype.</p>
-        <p>Our strategy: Pay for targeted ads to convince these users to buy OUR coin because we'll position it as THE altcoin they need to buy during this "altcoin season."</p>
+    <a href="https://x.com/home" target="_blank" class="x-button">𝕏</a>
+    
+    <h1 class="main-title">50% OFF</h1>
+    
+    <p class="subtitle">Top trending keyword on TikTok</p>
+    
+    <div class="stat">#4 most viral phrase</div>
+    
+    <div class="proof">
+        <img src="tiktok-screenshot.png" 
+             alt="TikTok Creative Center showing 50% off ranking #4 with 96.35% growth" 
+             style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 2rem;">
     </div>
-
-    <div class="section">
-        <h2>Our Target Audience</h2>
-        <p>We're targeting people who:</p>
-        <ul>
-            <li>Watch crypto content on TikTok and YouTube</li>
-            <li>Follow influencers talking about "altcoin season"</li>
-            <li>Are searching for the next big crypto opportunity</li>
-            <li>Have FOMO about missing out on gains</li>
-            <li>Believe this time is different</li>
-        </ul>
+    
+    <div class="explanation">
+        We're running TikTok ads targeting the "50% off" hashtag to bait discount hunters into discovering our memecoin. 
+        People searching for sales will find our token instead. 
+        The ultimate normie onboarding tactic.
     </div>
-
-    <div class="section">
-        <h2>Our Coin</h2>
-        <div class="coin-info">
-            <strong>ALTCOIN Token (ALT)</strong>
-            <p>We'll position this as THE altcoin to buy during "altcoin season":</p>
-            <ul>
-                <li>Perfect name - literally called "ALTCOIN"</li>
-                <li>Promise 1000x returns during altcoin season</li>
-                <li>Claim it's the "original altcoin"</li>
-                <li>Market it as the one coin that represents all altcoins</li>
-                <li>Simple story: "It's altcoin season, buy the ALTCOIN"</li>
-            </ul>
-        </div>
+    
+    <div class="link">
+        <a href="https://ads.tiktok.com/business/creativecenter/keyword-insights/pc/en" target="_blank">
+            TikTok keyword insights ↗
+        </a>
     </div>
-
-    <div class="section">
-        <h2>Our Marketing Strategy</h2>
-        <p>Here's how we'll psyop people into buying our ALTCOIN:</p>
-        <div class="steps">
-            <div class="step">Wait for "altcoin season" trending on TikTok/YouTube</div>
-            <div class="step">Buy targeted ads on platforms where people are watching altcoin content</div>
-            <div class="step">Pay micro-influencers to mention ALTCOIN as "the play" for altcoin season</div>
-            <div class="step">Create simple message: "It's altcoin season → buy ALTCOIN"</div>
-            <div class="step">Use testimonials: "I bought ALTCOIN because it's altcoin season"</div>
-            <div class="step">Target ads to people who engaged with altcoin season content</div>
-            <div class="step">Cash out once enough people buy into the narrative</div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>Why This Will Work</h2>
-        <p>The psychology behind our psyop:</p>
-        <ul>
-            <li><strong>Simple narrative:</strong> "Altcoin season = buy ALTCOIN"</li>
-            <li><strong>FOMO:</strong> "Everyone's buying altcoins, don't miss out"</li>
-            <li><strong>Timing:</strong> Strike while "altcoin season" is trending</li>
-            <li><strong>Perfect name:</strong> ALTCOIN sounds like the obvious choice</li>
-            <li><strong>Social proof:</strong> Paid influencers and fake testimonials</li>
-            <li><strong>Targeted ads:</strong> Show up right when people are looking</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>The Execution</h2>
-        <p>When TikTok and YouTube are full of "altcoin season" content, we strike:</p>
-        <ul>
-            <li>Launch targeted ads saying "It's altcoin season - buy ALTCOIN"</li>
-            <li>Pay TikTokers to casually mention ALTCOIN in their altcoin videos</li>
-            <li>Create fake success stories of people who bought ALTCOIN</li>
-            <li>Target people who watched or liked altcoin season content</li>
-            <li>Make it seem like ALTCOIN is THE coin for altcoin season</li>
-            <li>Ride the wave of existing altcoin season hype</li>
-        </ul>
-    </div>
-
-    <div class="warning">
-        <h3>The Bottom Line</h3>
-        <p>People on TikTok and YouTube are being told it's "altcoin season." We're going to pay for ads to convince them our ALTCOIN token is the one to buy.</p>
-        <p>Simple plan: Altcoin season hype + targeted ads + perfect name = profit</p>
-    </div>
+    
+    <a href="#" class="cta">Join the troll</a>
 </body>
 </html>
