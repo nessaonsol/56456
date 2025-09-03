@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboard</title>
+    <title>Pump Limited: Legal NASDAQ Listed Pump.fun Coin | Revolutionary Tokenomics</title>
+    <meta name="description" content="Pump Limited legally acquired a NASDAQ shell company for $10 to launch the first regulated pump.fun coin. Bridging traditional finance with DeFi innovation.">
     <style>
         * {
             margin: 0;
@@ -12,223 +13,1333 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #ffffff;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-        }
-
-        .x-button {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            width: 40px;
-            height: 40px;
-            background: transparent;
-            border: 1px solid #000;
-            color: #000;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 300;
-            transition: all 0.2s ease;
-            z-index: 1000;
-        }
-
-        .x-button:hover {
-            background: #000;
-            color: white;
+            color: #333;
+            background: #fff;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 0 2rem;
         }
 
-        h1 {
-            font-size: 4rem;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #000;
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: none;
         }
 
-        .subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 60px;
-            font-weight: 300;
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
         }
 
-        .main-content {
-            margin-bottom: 80px;
-        }
-
-        .section {
-            margin-bottom: 60px;
-        }
-
-        .section h2 {
+        .logo {
             font-size: 1.5rem;
-            margin-bottom: 20px;
-            font-weight: 400;
-            color: #000;
+            font-weight: bold;
+            color: transparent;
+            text-decoration: none;
+            display: none;
         }
 
-        .section p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 20px;
-            font-weight: 300;
+        nav {
+            display: none;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .highlight {
-            background: #f8f8f8;
-            padding: 30px;
-            margin: 40px 0;
-            border-left: 3px solid #9945FF;
+        @media (min-width: 1024px) {
+            nav {
+                display: flex;
+            }
         }
 
-        .highlight p {
-            margin: 0;
-            font-size: 1.1rem;
-            color: #333;
+        .nav-btn {
+            background: #1f2024;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
+        .nav-btn:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
         }
 
-        .feature {
+        .nav-btn.nasdaq {
+            background: linear-gradient(135deg, #0066cc, #004499);
+        }
+
+        .nav-btn.nasdaq:hover {
+            background: linear-gradient(135deg, #0080ff, #0066cc);
+        }
+
+        .nav-btn.sec {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+        }
+
+        .nav-btn.sec:hover {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .nav-btn.twitter {
+            background: #1d9bf0;
+        }
+
+        .nav-btn.twitter:hover {
+            background: #1a8cd8;
+        }
+
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (min-width: 1024px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(34,197,94,0.1)"/><stop offset="100%" stop-color="rgba(22,163,74,0.1)"/></linearGradient></defs><path d="M0,200 Q250,100 500,200 T1000,200 L1000,1000 L0,1000 Z" fill="url(%23wave-gradient)"/></svg>') no-repeat center center;
+            background-size: cover;
+            animation: wave 20s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .hero-content {
             text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
         }
 
-        .feature h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            font-weight: 400;
-            color: #000;
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: -2px;
         }
 
-        .feature p {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 300;
-        }
-
-        .cta {
-            text-align: center;
-            margin-top: 80px;
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
-            display: inline-block;
-            background: #9945FF;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #1f2024;
             color: white;
-            padding: 15px 30px;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
             text-decoration: none;
-            border-radius: 2px;
-            font-weight: 400;
-            transition: opacity 0.2s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .cta-button:hover {
-            opacity: 0.8;
+            background: white;
+            color: #1f2024;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover .arrow-icon {
+            transform: translateX(5px);
+        }
+
+        /* Dev Fee Rewards Section */
+        .sec-story {
+            padding: 6rem 0 3rem 0;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            position: relative;
+        }
+
+        .sec-story::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #22c55e, #16a34a, #22c55e);
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2024;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .story-timeline {
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .story-paragraph {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .story-paragraph.success {
+            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid #22c55e;
+        }
+
+        .story-paragraph h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2024;
+            margin-bottom: 0.75rem;
+        }
+
+        .story-paragraph p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .sec-button-container {
+            text-align: center;
+        }
+
+        .sec-verification-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .sec-verification-btn:hover {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+        }
+
+        /* Dividend Details Section */
+        .dividend-details-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            position: relative;
+        }
+
+        .dividend-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .dividend-details-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2024;
+            margin-bottom: 3rem;
+        }
+
+        .dividend-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .dividend-feature {
+            background: white;
+            border: 2px solid #22c55e;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1);
+        }
+
+        .dividend-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
+            border-color: #16a34a;
+        }
+
+        .dividend-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .dividend-feature h3 {
+            color: #1f2024;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .dividend-feature p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .calculation-breakdown {
+            background: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculation-breakdown h3 {
+            color: #1f2024;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .calc-steps {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .calc-step {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .calc-step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(34, 197, 94, 0.15);
+        }
+
+        .calc-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .calc-content {
+            text-align: left;
+        }
+
+        .calc-content h4 {
+            color: #1f2024;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-content p {
+            color: #64748b;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .returns-showcase {
+            background: white;
+            border-radius: 1rem;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .returns-showcase h3 {
+            color: #1f2024;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .returns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .return-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .return-card.featured {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-color: #22c55e;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .return-card:hover:not(.featured) {
+            transform: translateY(-5px);
+            border-color: #22c55e;
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.15);
+        }
+
+        .return-header {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .return-header h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: inherit;
+        }
+
+        .return-badge {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .return-badge.featured {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .return-body p {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .return-body strong {
+            color: inherit;
+        }
+
+        .dividend-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .dividend-primary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .dividend-primary-btn:hover {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+        }
+
+        .dividend-secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: white;
+            color: #22c55e;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #22c55e;
+        }
+
+        .dividend-secondary-btn:hover {
+            background: #22c55e;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* NASDAQ Section */
+        .nasdaq-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nasdaq-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            animation: slide 30s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100px); }
+        }
+
+        .nasdaq-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .nasdaq-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 3rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nasdaq-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .nasdaq-feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .nasdaq-feature:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .nasdaq-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .nasdaq-feature h3 {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .nasdaq-feature p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .nasdaq-timeline {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .nasdaq-timeline h3 {
+            color: white;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .timeline-steps {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-step:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .nasdaq-document-showcase {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .document-caption {
+            text-align: center;
+            color: #64748b;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .nasdaq-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nasdaq-verification-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, #0066cc, #004499);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+        }
+
+        .nasdaq-verification-btn:hover {
+            background: linear-gradient(135deg, #0080ff, #0066cc);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+        }
+
+        .nasdaq-secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nasdaq-secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
         }
 
         footer {
-            text-align: center;
-            padding-top: 60px;
-            border-top: 1px solid #eee;
-            color: #999;
+            background: #1f2024;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: #ccc;
             font-size: 0.9rem;
-            font-weight: 300;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .solana-accent {
-            color: #9945FF;
-            font-weight: 400;
+        .footer-column ul {
+            list-style: none;
         }
 
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #22c55e;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > * {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero h1 {
+            animation-delay: 0.2s;
+        }
+
+        .hero p {
+            animation-delay: 0.4s;
+        }
+
+        .cta-button {
+            animation-delay: 0.6s;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 1023px) {
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .container { padding: 40px 20px; }
-            .features { grid-template-columns: 1fr; gap: 30px; }
-            .x-button {
-                top: 20px;
-                right: 20px;
-                width: 36px;
-                height: 36px;
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header-content {
+                padding: 1rem;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            .hero p {
                 font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            nav {
+                gap: 0.75rem;
+            }
+
+            .nav-btn {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.85rem;
+            }
+
+            .sec-story, .nasdaq-section, .dividend-details-section {
+                padding: 4rem 0;
+            }
+
+            .story-content h2, .nasdaq-section h2, .dividend-details-section h2 {
+                font-size: 2rem;
+            }
+
+            .nasdaq-features, .dividend-features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .nasdaq-timeline, .calculation-breakdown, .returns-showcase {
+                padding: 2rem 1rem;
+            }
+
+            .timeline-steps, .calc-steps {
+                gap: 1rem;
+            }
+
+            .nasdaq-buttons, .dividend-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nasdaq-verification-btn, .nasdaq-secondary-btn, .dividend-primary-btn, .dividend-secondary-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .returns-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .return-card.featured {
+                transform: none;
+            }
+
+            .calc-step {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .calc-content {
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <a href="https://x.com/OnboardWithFees" class="x-button" target="_blank">𝕏</a>
-    
-    <div class="container">
-        <header>
-            <h1>onboard</h1>
-            <p class="subtitle">we use pumpfun fees to literally go person to person giving out solana for crypto onboarding</p>
-        </header>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Pump Limited</a>
+            <nav id="nav">
+                <a href="#nasdaq-section" class="nav-btn nasdaq">
+                    📈 NASDAQ Listing
+                </a>
+                <a href="#dividend-rewards" class="nav-btn sec">
+                    💰 Dev Fee Rewards
+                </a>
+                <a href="https://x.com/home" target="_blank" class="nav-btn twitter">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    X.com
+                </a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
 
-        <div class="main-content">
-            <div class="section">
-                <h2>The Mission</h2>
-                <p>We allocate 100% of generated fees from PumpFun to directly distribute <span class="solana-accent">Solana</span> to real people. No middlemen, no complex systems—just genuine one-on-one crypto onboarding that gets people their first taste of Web3.</p>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pump Limited</h1>
+            <p>We legally bought a cheap throwaway NASDAQ company for $10 and transformed it into a pump.fun coin that shares dev fees with holders</p>
+            <a href="#dividend-rewards" class="cta-button">
+                How We Did It
+                <svg class="arrow-icon" viewBox="0 0 45 8" fill="currentColor">
+                    <path d="M44.3536 4.35355C44.5488 4.15829 44.5488 3.84171 44.3536 3.64645L41.1716 0.464466C40.9763 0.269204 40.6597 0.269204 40.4645 0.464466C40.2692 0.659728 40.2692 0.976311 40.4645 1.17157L43.2929 4L40.4645 6.82843C40.2692 7.02369 40.2692 7.34027 40.4645 7.53553C40.6597 7.7308 40.9763 7.7308 41.1716 7.53553L44.3536 4.35355ZM0 4.5H44V3.5H0V4.5Z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
 
-            <div class="highlight">
-                <p>Every transaction fee goes directly into the pockets of newcomers, giving them actual Solana to explore, trade, and experience crypto firsthand.</p>
-            </div>
-
-            <div class="features">
-                <div class="feature">
-                    <h3>Direct Distribution</h3>
-                    <p>Person-to-person Solana handouts to new crypto users</p>
+    <!-- Dev Fee Rewards Section -->
+    <section id="dividend-rewards" class="sec-story">
+        <div class="container">
+            <div class="story-content">
+                <h2>💰 How We Did It: $10 Shell Company Hack</h2>
+                <div class="story-timeline">
+                    <div class="story-paragraph">
+                        <h3>🔍 Finding the Target</h3>
+                        <p>We identified a dormant NASDAQ-listed shell company trading for pennies with minimal assets and no active operations.</p>
+                    </div>
+                    
+                    <div class="story-paragraph">
+                        <h3>💵 The $10 Purchase</h3>
+                        <p>Through strategic negotiation, we acquired controlling interest in the company for just $10, gaining access to its NASDAQ listing status.</p>
+                    </div>
+                    
+                    <div class="story-paragraph">
+                        <h3>📄 Legal Transformation</h3>
+                        <p>We filed all necessary paperwork to rebrand the company as "Pump Limited" and restructure its business model around our pump.fun token.</p>
+                    </div>
+                    
+                    <div class="story-paragraph success">
+                        <h3>🚀 Pump.fun Integration Complete!</h3>
+                        <p>Successfully transformed a traditional NASDAQ company into the world's first regulated pump.fun coin, bridging traditional finance with DeFi innovation.</p>
+                    </div>
                 </div>
-
-                <div class="feature">
-                    <h3>Real Onboarding</h3>
-                    <p>Give people actual crypto to use, not just information</p>
-                </div>
-
-                <div class="feature">
-                    <h3>Grassroots Growth</h3>
-                    <p>Building the ecosystem one new user at a time</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>How It Works</h2>
-                <p>We take fees generated from PumpFun trading activity and convert them into direct Solana distributions. Our team literally walks up to people, explains crypto basics, and gives them SOL to start their journey.</p>
                 
-                <p>No complex tokenomics. No wasteful marketing spend. Just pure, authentic crypto adoption through hands-on onboarding and real value distribution.</p>
-            </div>
-
-            <div class="section">
-                <h2>Why This Matters</h2>
-                <p>Most crypto projects talk about adoption without actually creating it. We're different. By giving people actual <span class="solana-accent">Solana</span> to hold and use, we create immediate engagement and remove the biggest barrier to entry: getting started.</p>
-                
-                <p>Every person we onboard becomes a real user, not just a number in a whitepaper.</p>
+                <div class="sec-button-container">
+                    <a href="#" target="_blank" class="sec-verification-btn">
+                        🏛️ Verify Company Registration
+                    </a>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="cta">
-            <a href="#" class="cta-button">Join the Movement</a>
+    <!-- Dividend Details Section -->
+    <section class="dividend-details-section">
+        <div class="container">
+            <div class="dividend-content">
+                <h2>🎯 Dev Fee Dividend System</h2>
+                
+                <!-- Dividend Features -->
+                <div class="dividend-features">
+                    <div class="dividend-feature">
+                        <span class="dividend-feature-icon">💸</span>
+                        <h3>Quarterly Payments</h3>
+                        <p>Receive dividend payments every 3 months directly to your wallet based on your token holdings</p>
+                    </div>
+                    <div class="dividend-feature">
+                        <span class="dividend-feature-icon">📈</span>
+                        <h3>Scalable Returns</h3>
+                        <p>As platform usage grows, dev fees increase, resulting in higher dividend payments for holders</p>
+                    </div>
+                    <div class="dividend-feature">
+                        <span class="dividend-feature-icon">⚖️</span>
+                        <h3>SEC Compliant</h3>
+                        <p>First crypto dividend system that meets traditional securities regulations and reporting standards</p>
+                    </div>
+                </div>
+
+                <!-- Calculation Breakdown -->
+                <div class="calculation-breakdown">
+                    <h3>💰 Dividend Calculation Formula</h3>
+                    <div class="calc-steps">
+                        <div class="calc-step">
+                            <div class="calc-number">1</div>
+                            <div class="calc-content">
+                                <h4>Platform Fees Collected</h4>
+                                <p>All pump.fun dev fees from transactions, launches, and platform usage</p>
+                            </div>
+                        </div>
+                        <div class="calc-step">
+                            <div class="calc-number">2</div>
+                            <div class="calc-content">
+                                <h4>100% Distribution Pool</h4>
+                                <p>Entire dev fee amount goes into quarterly dividend distribution pool</p>
+                            </div>
+                        </div>
+                        <div class="calc-step">
+                            <div class="calc-number">3</div>
+                            <div class="calc-content">
+                                <h4>Pro-Rata Distribution</h4>
+                                <p>Your dividend = (Your tokens ÷ Total supply) × Total dev fees collected</p>
+                            </div>
+                        </div>
+                        <div class="calc-step">
+                            <div class="calc-number">4</div>
+                            <div class="calc-content">
+                                <h4>Automatic Payment</h4>
+                                <p>Dividends automatically distributed to all qualifying token holders</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example Returns -->
+                <div class="returns-showcase">
+                    <h3>📊 Example Dividend Scenarios</h3>
+                    <div class="returns-grid">
+                        <div class="return-card">
+                            <div class="return-header">
+                                <h4>Conservative Growth</h4>
+                                <span class="return-badge">$100K Quarterly Fees</span>
+                            </div>
+                            <div class="return-body">
+                                <p><strong>1% Holdings:</strong> $1,000 per quarter</p>
+                                <p><strong>0.1% Holdings:</strong> $100 per quarter</p>
+                                <p><strong>0.01% Holdings:</strong> $10 per quarter</p>
+                            </div>
+                        </div>
+                        <div class="return-card featured">
+                            <div class="return-header">
+                                <h4>Moderate Growth</h4>
+                                <span class="return-badge featured">$1M Quarterly Fees</span>
+                            </div>
+                            <div class="return-body">
+                                <p><strong>1% Holdings:</strong> $10,000 per quarter</p>
+                                <p><strong>0.1% Holdings:</strong> $1,000 per quarter</p>
+                                <p><strong>0.01% Holdings:</strong> $100 per quarter</p>
+                            </div>
+                        </div>
+                        <div class="return-card">
+                            <div class="return-header">
+                                <h4>High Growth</h4>
+                                <span class="return-badge">$10M Quarterly Fees</span>
+                            </div>
+                            <div class="return-body">
+                                <p><strong>1% Holdings:</strong> $100,000 per quarter</p>
+                                <p><strong>0.1% Holdings:</strong> $10,000 per quarter</p>
+                                <p><strong>0.01% Holdings:</strong> $1,000 per quarter</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="dividend-buttons">
+                    <a href="#" class="dividend-primary-btn">
+                        🚀 Buy PUMP Tokens
+                    </a>
+                    <a href="#" class="dividend-secondary-btn">
+                        📊 Calculate My Dividends
+                    </a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <footer>
-            <p>© 2025 onboard</p>
-        </footer>
-    </div>
+    <!-- NASDAQ Section -->
+    <section id="nasdaq-section" class="nasdaq-section">
+        <div class="container">
+            <div class="nasdaq-content">
+                <h2>🎯 Our NASDAQ Innovation</h2>
+                
+                <!-- Key Features -->
+                <div class="nasdaq-features">
+                    <div class="nasdaq-feature">
+                        <span class="nasdaq-feature-icon">💸</span>
+                        <h3>$10 Acquisition</h3>
+                        <p>Legally acquired dormant NASDAQ shell company for just ten dollars</p>
+                    </div>
+                    <div class="nasdaq-feature">
+                        <span class="nasdaq-feature-icon">🔄</span>
+                        <h3>Pump.fun Integration</h3>
+                        <p>First regulated company to integrate pump.fun tokenomics with NASDAQ compliance</p>
+                    </div>
+                    <div class="nasdaq-feature">
+                        <span class="nasdaq-feature-icon">⚖️</span>
+                        <h3>Legal Innovation</h3>
+                        <p>Bridging traditional finance regulations with modern DeFi mechanisms</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Process -->
+                <div class="nasdaq-timeline">
+                    <h3>From Shell Company to Pump.fun Pioneer</h3>
+                    <div class="timeline-steps">
+                        <div class="timeline-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Shell Company Discovery</h4>
+                                <p>Located an inactive NASDAQ-listed company with no operations or assets</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Strategic Acquisition</h4>
+                                <p>Negotiated purchase for $10, gaining control of NASDAQ listing rights</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Corporate Restructure</h4>
+                                <p>Rebranded to "Pump Limited" and filed business model transformation</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Pump.fun Launch</h4>
+                                <p>Successfully launched as the first regulated pump.fun coin on NASDAQ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Showcase -->
+                <div class="nasdaq-document-showcase">
+                    <p class="document-caption">Official Pump Limited NASDAQ transformation documentation</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="nasdaq-buttons">
+                    <a href="#" target="_blank" class="nasdaq-verification-btn">
+                        📈 View PUMP on NASDAQ
+                    </a>
+                    <a href="#" class="nasdaq-secondary-btn">
+                        🚀 Launch Pump.fun Token
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">Pump Limited</a>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">💬</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="#">Company Registration</a></li>
+                            <li><a href="#">NASDAQ Listing</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Investment</h3>
+                        <ul>
+                            <li><a href="#">Token Overview</a></li>
+                            <li><a href="#">Dividend Performance</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Strategy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pump Limited. All rights reserved. | NASDAQ Listed | Pump.fun Regulated</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+            }
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.borderBottom = '1px solid rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'transparent';
+                header.style.backdropFilter = 'none';
+                header.style.borderBottom = 'none';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                if (window.innerWidth < 1024) {
+                    nav.style.display = 'none';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
