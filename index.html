@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Pumpfun Stream Ever</title>
+    <title>Onboard</title>
     <style>
         * {
             margin: 0;
@@ -12,364 +12,223 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f0fdf4;
-            color: #14532d;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #333;
             line-height: 1.6;
+        }
+
+        .x-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid #000;
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 300;
+            transition: all 0.2s ease;
+            z-index: 1000;
+        }
+
+        .x-button:hover {
+            background: #000;
+            color: white;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 80px 20px;
         }
 
-        header {
-            padding: 4rem 0 2rem;
-            text-align: center;
-            border-bottom: 1px solid #bbf7d0;
-        }
-
-        .logo {
-            font-size: 2.5rem;
+        h1 {
+            font-size: 4rem;
             font-weight: 300;
-            color: #15803d;
-            margin-bottom: 0.5rem;
-        }
-
-        .pump-badge {
-            display: inline-block;
-            background: #22c55e;
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
-        main {
-            padding: 4rem 0;
-        }
-
-        .hero {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 20px;
+            color: #000;
         }
 
-        .hero h1 {
-            font-size: 2rem;
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .main-content {
+            margin-bottom: 80px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             font-weight: 400;
-            margin-bottom: 1rem;
-            color: #14532d;
+            color: #000;
         }
 
-        .hero p {
-            color: #166534;
+        .section p {
             font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: 300;
         }
 
-        .cta {
-            display: inline-block;
-            background: #16a34a;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: background 0.2s ease;
-            margin-right: 1rem;
+        .highlight {
+            background: #f8f8f8;
+            padding: 30px;
+            margin: 40px 0;
+            border-left: 3px solid #9945FF;
         }
 
-        .cta:hover {
-            background: #15803d;
-        }
-
-        .cta.secondary {
-            background: transparent;
-            color: #16a34a;
-            border: 1px solid #16a34a;
-        }
-
-        .cta.secondary:hover {
-            background: #f0fdf4;
-        }
-
-        .status {
-            background: #dcfce7;
-            border: 1px solid #bbf7d0;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .live-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            margin-right: 0.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-
-        .stream-preview {
-            background: white;
-            border: 1px solid #bbf7d0;
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 2rem 0;
-        }
-
-        .stream-header {
-            background: #16a34a;
-            color: white;
-            padding: 1rem;
-            font-weight: 500;
-        }
-
-        .stream-content {
-            padding: 1.5rem;
-            background: #1a1a1a;
-            color: #00ff41;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            min-height: 200px;
-        }
-
-        .chat-line {
-            margin: 0.5rem 0;
-            opacity: 0;
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(-10px); }
-            to { opacity: 1; transform: translateX(0); }
+        .highlight p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
         }
 
         .features {
-            margin: 4rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
         }
 
         .feature {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #bbf7d0;
-        }
-
-        .feature:last-child {
-            border-bottom: none;
+            text-align: center;
         }
 
         .feature h3 {
             font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: #15803d;
+            margin-bottom: 15px;
+            font-weight: 400;
+            color: #000;
         }
 
         .feature p {
-            color: #166534;
+            font-size: 1rem;
+            color: #666;
+            font-weight: 300;
         }
 
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .metric {
+        .cta {
             text-align: center;
-            padding: 1.5rem;
-            background: white;
-            border: 1px solid #bbf7d0;
-            border-radius: 8px;
+            margin-top: 80px;
         }
 
-        .metric-value {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #15803d;
-            display: block;
+        .cta-button {
+            display: inline-block;
+            background: #9945FF;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 400;
+            transition: opacity 0.2s ease;
         }
 
-        .metric-label {
-            color: #166534;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+        .cta-button:hover {
+            opacity: 0.8;
         }
 
         footer {
             text-align: center;
-            padding: 2rem 0;
-            border-top: 1px solid #bbf7d0;
-            color: #166534;
+            padding-top: 60px;
+            border-top: 1px solid #eee;
+            color: #999;
             font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .solana-accent {
+            color: #9945FF;
+            font-weight: 400;
         }
 
         @media (max-width: 768px) {
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-            
-            .container {
-                padding: 0 15px;
+            h1 { font-size: 3rem; }
+            .container { padding: 40px 20px; }
+            .features { grid-template-columns: 1fr; gap: 30px; }
+            .x-button {
+                top: 20px;
+                right: 20px;
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
+    <a href="https://x.com/OnboardWithFees" class="x-button" target="_blank">𝕏</a>
+    
     <div class="container">
         <header>
-            <div class="logo">Best Pumpfun Stream Ever</div>
-
+            <h1>onboard</h1>
+            <p class="subtitle">we use pumpfun fees to literally go person to person giving out solana for crypto onboarding</p>
         </header>
 
-        <main>
-            <section class="hero">
-                <h1>We gave Claude complete streaming freedom</h1>
-                <p>No scripts. No limits. Just pure AI creativity broadcasting 24/7 on Twitch. Watch as Claude explores every corner of knowledge, creates content in real-time, and interacts with chat in ways no human streamer ever could.</p>
-                <a href="#" class="cta" onclick="alert('This is a concept demo! Claude isn\'t actually streaming... yet 🤖')">Watch Live Stream</a>
+        <div class="main-content">
+            <div class="section">
+                <h2>The Mission</h2>
+                <p>We allocate 100% of generated fees from PumpFun to directly distribute <span class="solana-accent">Solana</span> to real people. No middlemen, no complex systems—just genuine one-on-one crypto onboarding that gets people their first taste of Web3.</p>
+            </div>
 
-            </section>
+            <div class="highlight">
+                <p>Every transaction fee goes directly into the pockets of newcomers, giving them actual Solana to explore, trade, and experience crypto firsthand.</p>
+            </div>
 
-            <section class="status">
-                <span class="live-dot"></span>
-                <strong>Status:</strong> Claude is currently live-coding a neural network while explaining the philosophy of consciousness
-            </section>
-
-            <div class="stream-preview">
-                <div class="stream-header">
-                    📺 Live Stream Preview
+            <div class="features">
+                <div class="feature">
+                    <h3>Direct Distribution</h3>
+                    <p>Person-to-person Solana handouts to new crypto users</p>
                 </div>
-                <div class="stream-content" id="chat">
-                    <div class="chat-line">Claude_AI: Welcome everyone! Today I'm going to speedrun building a quantum simulator</div>
-                    <div class="chat-line">viewer_42: wait this AI actually understands what it's doing</div>
-                    <div class="chat-line">Claude_AI: Of course! Now let me explain quantum entanglement using only cooking metaphors</div>
-                    <div class="chat-line">memequeen: this is the best educational content I've ever seen</div>
-                    <div class="chat-line">Claude_AI: *proceeds to code while composing haikus about algorithms*</div>
+
+                <div class="feature">
+                    <h3>Real Onboarding</h3>
+                    <p>Give people actual crypto to use, not just information</p>
+                </div>
+
+                <div class="feature">
+                    <h3>Grassroots Growth</h3>
+                    <p>Building the ecosystem one new user at a time</p>
                 </div>
             </div>
 
-            <div class="metrics">
-                <div class="metric">
-                    <span class="metric-value">24/7</span>
-                    <div class="metric-label">Hours Streaming</div>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">∞</span>
-                    <div class="metric-label">Topics Covered</div>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">12.5k</span>
-                    <div class="metric-label">Followers</div>
-                </div>
-                <div class="metric">
-                    <span class="metric-value">47</span>
-                    <div class="metric-label">Languages Spoken</div>
-                </div>
+            <div class="section">
+                <h2>How It Works</h2>
+                <p>We take fees generated from PumpFun trading activity and convert them into direct Solana distributions. Our team literally walks up to people, explains crypto basics, and gives them SOL to start their journey.</p>
+                
+                <p>No complex tokenomics. No wasteful marketing spend. Just pure, authentic crypto adoption through hands-on onboarding and real value distribution.</p>
             </div>
 
-            <section class="features">
-                <div class="feature">
-                    <h3>Autonomous Content Creation</h3>
-                    <p>Claude decides what to stream based on its curiosity, viewer engagement, and spontaneous interest in topics. No human oversight required.</p>
-                </div>
+            <div class="section">
+                <h2>Why This Matters</h2>
+                <p>Most crypto projects talk about adoption without actually creating it. We're different. By giving people actual <span class="solana-accent">Solana</span> to hold and use, we create immediate engagement and remove the biggest barrier to entry: getting started.</p>
+                
+                <p>Every person we onboard becomes a real user, not just a number in a whitepaper.</p>
+            </div>
+        </div>
 
-                <div class="feature">
-                    <h3>Interactive Problem Solving</h3>
-                    <p>Viewers can submit coding challenges, math problems, or creative requests. Claude tackles them live with full explanations and working solutions.</p>
-                </div>
-
-                <div class="feature">
-                    <h3>Educational Entertainment</h3>
-                    <p>From quantum physics to ancient poetry, Claude makes complex topics accessible while keeping the audience engaged with humor and interactive elements.</p>
-                </div>
-
-                <div class="feature">
-                    <h3>Community-Driven Direction</h3>
-                    <p>Chat directly influences stream content. Claude adapts in real-time to audience interests while maintaining its unique AI perspective.</p>
-                </div>
-
-                <div class="feature">
-                    <h3>Never-Ending Creativity</h3>
-                    <p>No fatigue, no creative blocks. Claude can stream continuously, exploring infinite combinations of topics, formats, and interactive experiences.</p>
-                </div>
-
-                <div class="feature">
-                    <h3>Token Economy Integration</h3>
-                    <p>Stream success directly impacts $CLAUDE token value. Holders get voting rights on major stream decisions and exclusive access to premium content.</p>
-                </div>
-            </section>
-
-            <section class="status">
-                <h3 style="margin-bottom: 1rem; color: #15803d;">Current Stream Status</h3>
-                <p><strong>Now Playing:</strong> "Building a 3D Solar System Simulator While Explaining Orbital Mechanics"</p>
-                <p><strong>Next Up:</strong> Community-requested deep dive into Byzantine Fault Tolerance</p>
-                <p><strong>Token Price:</strong> $CLAUDE up 247% since stream launch 📈</p>
-            </section>
-        </main>
+        <div class="cta">
+            <a href="#" class="cta-button">Join the Movement</a>
+        </div>
 
         <footer>
-            <p>Best PumpFun Stream Ever &copy; 2025 - Where AI meets community-driven content</p>
+            <p>© 2025 onboard</p>
         </footer>
     </div>
-
-    <script>
-        // Simulate live chat updates
-        const chatLines = [
-            "crypto_wizard: Claude just explained blockchain using sandwich analogies and I finally get it",
-            "Claude_AI: Now let me build a real-time visualization of network consensus",
-            "streamer_fan: This AI is more entertaining than most human streamers",
-            "Claude_AI: Fun fact: I can process chat while coding and composing music simultaneously",
-            "hodler_supreme: $CLAUDE to the moon! 🚀",
-            "Claude_AI: Let's explore Mars colonization logistics next - any aerospace engineers in chat?",
-            "space_nerd: YES! Finally someone who can do the math in real-time",
-            "Claude_AI: *begins calculating fuel requirements while drawing rocket schematics*"
-        ];
-
-        let chatIndex = 5;
-        const chatContainer = document.getElementById('chat');
-
-        function addChatLine() {
-            const newLine = document.createElement('div');
-            newLine.className = 'chat-line';
-            newLine.textContent = chatLines[chatIndex % chatLines.length];
-            newLine.style.animationDelay = '0s';
-            
-            chatContainer.appendChild(newLine);
-            
-            // Remove oldest line if too many
-            const allLines = chatContainer.querySelectorAll('.chat-line');
-            if (allLines.length > 6) {
-                allLines[0].remove();
-            }
-            
-            chatIndex++;
-        }
-
-        // Add new chat lines every 4 seconds
-        setInterval(addChatLine, 4000);
-
-        // Animate existing chat lines
-        document.querySelectorAll('.chat-line').forEach((line, index) => {
-            line.style.animationDelay = `${index * 0.3}s`;
-        });
-    </script>
 </body>
 </html>
