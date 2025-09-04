@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieFun - Vote for Movies</title>
+    <title>Cartoon Streams!</title>
+    <link rel="icon" type="image/x-icon" href="pumptoon.png">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,342 +15,378 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: white;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #2d3748;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        header {
+        .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 0;
-            background: #22c55e;
-            color: white;
-            border-radius: 10px;
-            margin-top: 20px;
+            margin-bottom: 50px;
+            padding: 50px 20px;
+            background: #ffffff;
+            border: 2px solid #22c55e;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.1);
         }
 
         .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #22c55e;
             margin-bottom: 10px;
         }
 
         .tagline {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.2em;
+            color: #6b7280;
+            font-weight: 500;
         }
 
-        .info-box {
-            background: #f0fdf4;
+        .hero-section {
+            background: #f8fffe;
             border: 2px solid #22c55e;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 30px;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.08);
         }
 
-        .info-title {
-            color: #16a34a;
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .voting-section {
-            background: #f9fafb;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            color: #16a34a;
-            font-size: 1.3rem;
-            font-weight: bold;
+        .hero-title {
+            font-size: 2.5em;
+            color: #22c55e;
             margin-bottom: 20px;
             text-align: center;
+            font-weight: 700;
         }
 
-        .movie-option {
-            background: white;
-            border: 2px solid #e5e7eb;
+        .hero-text {
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #4b5563;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pumpfun-highlight {
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .streaming-info {
+            background: #22c55e;
             border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 20px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .streaming-time {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: white;
+        }
+
+        .schedule-section {
+            background: #ffffff;
+            border: 2px solid #22c55e;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.08);
+        }
+
+        .schedule-title {
+            font-size: 2.5em;
+            color: #22c55e;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .weekly-schedule {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .day-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
 
-        .movie-option:hover {
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.15);
             border-color: #22c55e;
         }
 
-        .movie-info h3 {
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .movie-genre {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .vote-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .vote-count {
-            font-weight: bold;
-            color: #16a34a;
-        }
-
-        .vote-btn {
-            background: #22c55e;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        .vote-btn:hover {
-            background: #16a34a;
-        }
-
-        .vote-btn:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-        }
-
-        .add-movie {
-            background: white;
-            border: 2px solid #22c55e;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #16a34a;
-            font-weight: bold;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #e5e7eb;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #22c55e;
-        }
-
-        .add-btn {
-            background: #22c55e;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        .add-btn:hover {
-            background: #16a34a;
-        }
-
-        .how-it-works {
-            background: #f0fdf4;
-            border-radius: 10px;
-            padding: 25px;
-        }
-
-        .feature {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .feature:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
+        .day-title {
+            font-size: 1.5em;
+            font-weight: 700;
             color: #22c55e;
-            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f3f4f6;
         }
 
-        @media (max-width: 600px) {
-            .movie-option {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+        .cartoon-slot {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #22c55e;
+        }
+
+        .cartoon-slot:last-child {
+            margin-bottom: 0;
+        }
+
+        .time-slot {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #22c55e;
+            margin-bottom: 5px;
+        }
+
+        .cartoon-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .cartoon-description {
+            font-size: 0.9em;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+
+        .featured-day {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 2px solid #22c55e;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.2);
+        }
+
+        .featured-day .day-title {
+            color: #16a34a;
+            font-size: 1.6em;
+        }
+
+        .featured-day .cartoon-slot {
+            background: #ffffff;
+            border-left: 4px solid #16a34a;
+        }
+
+        .featured-day .time-slot {
+            color: #16a34a;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: #f8fffe;
+            border: 2px solid #22c55e;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.08);
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .logo { 
+                font-size: 2.5em; 
             }
-            
-            .vote-area {
-                width: 100%;
-                justify-content: space-between;
+            .hero-title, .schedule-title { 
+                font-size: 2em; 
+            }
+            .weekly-schedule { 
+                grid-template-columns: 1fr; 
+            }
+            .container {
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1 class="logo">🎬 MovieFun</h1>
-            <p class="tagline">Vote for movies • Watch together • High quality streaming</p>
-        </header>
 
-        <div class="info-box">
-            <div class="info-title">
-                🖥️ Private Virtual Server Streaming
+
+        <section class="hero-section">
+            <h2 class="hero-title">Welcome To PumpToon</h2>
+            <p class="hero-text">
+                Get ready for non-stop animated entertainment! We're bringing you the best cartoons every single day on 
+                <span class="pumpfun-highlight">PumpFun</span>. From classic favorites to modern hits, 
+                our daily streams are packed with laughter, adventure, and nostalgia.
+            </p>
+            <div class="streaming-info">
+                <div class="streaming-time">Live Streaming Cartoons Everyday</div>
             </div>
-            <p>MovieFun runs on a dedicated private virtual server that streams movies directly from Netflix. This ensures 10/10 quality streaming that never buffers or goes down. Every movie plays in perfect HD quality with crystal clear audio.</p>
-        </div>
+        </section>
 
-        <div class="voting-section">
-            <h2 class="section-title">Vote for the Next Movie</h2>
+        <section class="schedule-section">
+            <h2 class="schedule-title">📅 September 2025 Weekly Schedule</h2>
             
-            <div class="movie-option">
-                <div class="movie-info">
-                    <h3>Stranger Things (Season 4)</h3>
-                    <div class="movie-genre">Sci-Fi Drama • Netflix Original</div>
+            <div class="weekly-schedule">
+                <div class="day-card featured-day">
+                    <div class="day-title">🧽 MONDAY - SpongeBob Day!</div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">10:00 AM</div>
+                        <div class="cartoon-name">SpongeBob SquarePants - Classic Episodes</div>
+                        <div class="cartoon-description">Best of Bikini Bottom adventures!</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">2:00 PM</div>
+                        <div class="cartoon-name">SpongeBob Movie Marathon</div>
+                        <div class="cartoon-description">Feature films and specials</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">6:00 PM</div>
+                        <div class="cartoon-name">SpongeBob New Episodes</div>
+                        <div class="cartoon-description">Latest Krabby Patty chaos!</div>
+                    </div>
                 </div>
-                <div class="vote-area">
-                    <span class="vote-count">0 votes</span>
-                    <button class="vote-btn" onclick="vote(this)">Vote</button>
+
+                <div class="day-card">
+                    <div class="day-title">🐭 TUESDAY - Classic Chaos</div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">10:00 AM</div>
+                        <div class="cartoon-name">Tom and Jerry</div>
+                        <div class="cartoon-description">Classic cat and mouse mayhem</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">2:00 PM</div>
+                        <div class="cartoon-name">Looney Tunes</div>
+                        <div class="cartoon-description">Bugs Bunny and friends</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">6:00 PM</div>
+                        <div class="cartoon-name">The Simpsons</div>
+                        <div class="cartoon-description">Springfield family fun</div>
+                    </div>
+                </div>
+
+                <div class="day-card">
+                    <div class="day-title">🎮 WEDNESDAY - Adventure Zone</div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">10:00 AM</div>
+                        <div class="cartoon-name">Adventure Time</div>
+                        <div class="cartoon-description">Mathematical adventures in Ooo</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="slot">2:00 PM</div>
+                        <div class="cartoon-name">Steven Universe</div>
+                        <div class="cartoon-description">Crystal Gem adventures</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">6:00 PM</div>
+                        <div class="cartoon-name">Avatar: The Last Airbender</div>
+                        <div class="cartoon-description">Elemental mastery journey</div>
+                    </div>
+                </div>
+
+                <div class="day-card">
+                    <div class="day-title">🐻 THURSDAY - Modern Mix</div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">10:00 AM</div>
+                        <div class="cartoon-name">We Bare Bears</div>
+                        <div class="cartoon-description">Three bears, modern world</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">2:00 PM</div>
+                        <div class="cartoon-name">The Amazing World of Gumball</div>
+                        <div class="cartoon-description">Elmore Junior High chaos</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">6:00 PM</div>
+                        <div class="cartoon-name">Regular Show</div>
+                        <div class="cartoon-description">Park maintenance gone wild</div>
+                    </div>
+                </div>
+
+                <div class="day-card">
+                    <div class="day-title">🦆 FRIDAY - Family Fun</div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">10:00 AM</div>
+                        <div class="cartoon-name">DuckTales</div>
+                        <div class="cartoon-description">Scrooge's treasure adventures</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">2:00 PM</div>
+                        <div class="cartoon-name">Gravity Falls</div>
+                        <div class="cartoon-description">Mystery twins in Oregon</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">6:00 PM</div>
+                        <div class="cartoon-name">Bob's Burgers</div>
+                        <div class="cartoon-description">Restaurant family comedy</div>
+                    </div>
+                </div>
+
+                <div class="day-card">
+                    <div class="day-title">🌟 SATURDAY - Special Saturday</div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">10:00 AM</div>
+                        <div class="cartoon-name">Cartoon Network Classics</div>
+                        <div class="cartoon-description">PowerPuff Girls, Dexter's Lab</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">2:00 PM</div>
+                        <div class="cartoon-name">Disney Afternoon Block</div>
+                        <div class="cartoon-description">Classic Disney cartoons</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">6:00 PM</div>
+                        <div class="cartoon-name">Movie Night</div>
+                        <div class="cartoon-description">Animated feature films</div>
+                    </div>
+                </div>
+
+                <div class="day-card">
+                    <div class="day-title">👨‍🔬 SUNDAY - Sci-Fi Sunday</div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">10:00 AM</div>
+                        <div class="cartoon-name">Rick and Morty</div>
+                        <div class="cartoon-description">Interdimensional adventures</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">2:00 PM</div>
+                        <div class="cartoon-name">Futurama</div>
+                        <div class="cartoon-description">Year 3000 comedy</div>
+                    </div>
+                    <div class="cartoon-slot">
+                        <div class="time-slot">6:00 PM</div>
+                        <div class="cartoon-name">Star Wars: The Clone Wars</div>
+                        <div class="cartoon-description">Galactic adventures</div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="movie-option">
-                <div class="movie-info">
-                    <h3>The Queen's Gambit</h3>
-                    <div class="movie-genre">Drama • Netflix Original</div>
-                </div>
-                <div class="vote-area">
-                    <span class="vote-count">0 votes</span>
-                    <button class="vote-btn" onclick="vote(this)">Vote</button>
-                </div>
-            </div>
-
-            <div class="movie-option">
-                <div class="movie-info">
-                    <h3>Squid Game</h3>
-                    <div class="movie-genre">Thriller • Netflix Original</div>
-                </div>
-                <div class="vote-area">
-                    <span class="vote-count">0 votes</span>
-                    <button class="vote-btn" onclick="vote(this)">Vote</button>
-                </div>
-            </div>
-
-            <div class="movie-option">
-                <div class="movie-info">
-                    <h3>Breaking Bad</h3>
-                    <div class="movie-genre">Crime Drama • Available on Netflix</div>
-                </div>
-                <div class="vote-area">
-                    <span class="vote-count">0 votes</span>
-                    <button class="vote-btn" onclick="vote(this)">Vote</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="add-movie">
-            <h2 class="section-title">Suggest a Movie</h2>
-            <div class="form-group">
-                <label for="movieTitle">Movie/Show Name</label>
-                <input type="text" id="movieTitle" placeholder="Enter any movie or show available on Netflix">
-            </div>
-            <button class="add-btn" onclick="addMovie()">Add to Vote Pool</button>
-        </div>
-
-        <div class="how-it-works">
-            <h2 class="section-title">How MovieFun Works</h2>
-            <div class="feature">Movies stream directly from Netflix through our private virtual server</div>
-            <div class="feature">Perfect 10/10 quality - no buffering, no downtime, crystal clear HD</div>
-            <div class="feature">When a movie ends, the highest voted movie plays next automatically</div>
-            <div class="feature">Suggest any movie or show available on Netflix</div>
-            <div class="feature">Vote once per movie - most votes wins</div>
-            <div class="feature">Community decides what plays 24/7</div>
-        </div>
+        <footer class="footer">
+            <p>🎬 Tune in daily for your cartoon fix! 🎬</p>
+            <p>All times in EST • Follow us for stream updates!</p>
+        </footer>
     </div>
-
-    <script>
-        let userVoted = new Set();
-        
-        function vote(button) {
-            const movieOption = button.parentElement.parentElement;
-            const movieTitle = movieOption.querySelector('h3').textContent;
-            
-            if (userVoted.has(movieTitle)) {
-                return;
-            }
-            
-            userVoted.add(movieTitle);
-            
-            const voteCount = button.parentElement.querySelector('.vote-count');
-            const currentVotes = parseInt(voteCount.textContent.split(' ')[0]);
-            voteCount.textContent = `${currentVotes + 1} votes`;
-            
-            button.textContent = 'Voted!';
-            button.disabled = true;
-            button.style.background = '#9ca3af';
-        }
-
-        function addMovie() {
-            const title = document.getElementById('movieTitle').value.trim();
-            
-            if (!title) {
-                alert('Please enter a movie or show name!');
-                return;
-            }
-            
-            const votingSection = document.querySelector('.voting-section');
-            const newMovie = document.createElement('div');
-            newMovie.className = 'movie-option';
-            newMovie.innerHTML = `
-                <div class="movie-info">
-                    <h3>${title}</h3>
-                    <div class="movie-genre">User Suggestion • Netflix</div>
-                </div>
-                <div class="vote-area">
-                    <span class="vote-count">1 votes</span>
-                    <button class="vote-btn" onclick="vote(this)">Vote</button>
-                </div>
-            `;
-            
-            votingSection.appendChild(newMovie);
-            document.getElementById('movieTitle').value = '';
-            
-            alert('Movie added to voting pool!');
-        }
-    </script>
 </body>
 </html>
