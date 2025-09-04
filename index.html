@@ -3,998 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meme Fund: $20 Million Memecoin Investment Fund | DWF Labs</title>
-    <meta name="description" content="DWF Labs' Meme Fund is dedicated to investing in the top memecoin projects across all blockchains to accelerate their growth. Apply today!">
+    <title>Stimmy</title>
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px 20px;
+            background: #f0f0f0;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
+        .twitter-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1DA1F2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .twitter-btn:hover {
+            background: #0d8bd9;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: transparent;
-            backdrop-filter: none;
-            border-bottom: none;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1f2024;
-            text-decoration: none;
-        }
-
-        nav {
-            display: none;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        @media (min-width: 1024px) {
-            nav {
-                display: flex;
-            }
-        }
-
-        .nav-btn {
-            background: #1f2024;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-btn:hover {
-            background: #f96d30;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(249, 109, 48, 0.3);
-        }
-
-        .nav-btn.nasdaq {
-            background: linear-gradient(135deg, #0066cc, #004499);
-        }
-
-        .nav-btn.nasdaq:hover {
-            background: linear-gradient(135deg, #0080ff, #0066cc);
-        }
-
-        .nav-btn.sec {
-            background: linear-gradient(135deg, #dc2626, #991b1b);
-        }
-
-        .nav-btn.sec:hover {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-        }
-
-        .nav-btn.twitter {
-            background: #1d9bf0;
-        }
-
-        .nav-btn.twitter:hover {
-            background: #1a8cd8;
-        }
-
-        .menu-toggle {
-            display: block;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (min-width: 1024px) {
-            .menu-toggle {
-                display: none;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: linear-gradient(135deg, #f96d30 0%, #ff8a5b 100%);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(249,109,48,0.1)"/><stop offset="100%" stop-color="rgba(255,138,91,0.1)"/></linearGradient></defs><path d="M0,200 Q250,100 500,200 T1000,200 L1000,1000 L0,1000 Z" fill="url(%23wave-gradient)"/></svg>') no-repeat center center;
-            background-size: cover;
-            animation: wave 20s ease-in-out infinite;
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(1deg); }
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            letter-spacing: -2px;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: #1f2024;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
+            margin: 0 auto;
             background: white;
-            color: #1f2024;
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
         }
 
-        .arrow-icon {
-            width: 24px;
-            height: 24px;
-            transition: transform 0.3s ease;
+        h1 {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
         }
 
-        .cta-button:hover .arrow-icon {
-            transform: translateX(5px);
+        h2 {
+            color: #28a745;
+            margin: 30px 0 15px 0;
         }
 
-        /* SEC Story Section */
-        .sec-story {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-        }
-
-        .sec-story::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f96d30, #ff8a5b, #f96d30);
-        }
-
-        .story-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .story-content h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1f2024;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .story-timeline {
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .story-paragraph {
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .story-paragraph.success {
-            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border-left: 4px solid #22c55e;
-        }
-
-        .story-paragraph h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1f2024;
-            margin-bottom: 0.75rem;
-        }
-
-        .story-paragraph p {
-            color: #64748b;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        .sec-document-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: block;
-            margin: 0 auto 2rem auto;
-        }
-
-        .sec-button-container {
-            text-align: center;
-        }
-
-        .sec-verification-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: linear-gradient(135deg, #dc2626, #991b1b);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
-        }
-
-        .sec-verification-btn:hover {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
-        }
-
-        /* NASDAQ Section */
-        .nasdaq-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nasdaq-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            animation: slide 30s linear infinite;
-        }
-
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100px); }
-        }
-
-        .nasdaq-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .nasdaq-section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 3rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .nasdaq-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .nasdaq-feature {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 1rem;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .nasdaq-feature:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .nasdaq-feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .nasdaq-feature h3 {
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .nasdaq-feature p {
-            color: rgba(255, 255, 255, 0.9);
+        p {
+            font-size: 1.2rem;
             line-height: 1.6;
-            font-size: 0.95rem;
+            margin-bottom: 20px;
+            color: #28a745;
         }
 
-        .nasdaq-timeline {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 1rem;
-            padding: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .nasdaq-timeline h3 {
-            color: white;
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .timeline-steps {
-            display: grid;
-            gap: 1.5rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .timeline-step {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 0.75rem;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-step:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateX(5px);
-        }
-
-        .step-number {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .step-content h4 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .step-content p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .nasdaq-document-showcase {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 1rem;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .nasdaq-document-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            display: block;
-            margin: 0 auto 1rem auto;
-        }
-
-        .document-caption {
-            text-align: center;
-            color: #64748b;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        .nasdaq-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .nasdaq-verification-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: linear-gradient(135deg, #0066cc, #004499);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
-        }
-
-        .nasdaq-verification-btn:hover {
-            background: linear-gradient(135deg, #0080ff, #0066cc);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
-        }
-
-        .nasdaq-secondary-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .nasdaq-secondary-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .sec-story, .nasdaq-section, .dividend-details-section {
-                padding: 4rem 0;
-            }
-
-            .story-content h2, .nasdaq-section h2, .dividend-details-section h2 {
-                font-size: 2rem;
-            }
-
-            .nasdaq-features, .dividend-features {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .nasdaq-timeline, .calculation-breakdown, .returns-showcase {
-                padding: 2rem 1rem;
-            }
-
-            .timeline-steps, .calc-steps {
-                gap: 1rem;
-            }
-
-            .nasdaq-buttons, .dividend-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .nasdaq-verification-btn, .nasdaq-secondary-btn, .dividend-primary-btn, .dividend-secondary-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .returns-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .return-card.featured {
-                transform: none;
-            }
-
-            .calc-step {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .calc-content {
-                text-align: center;
-            }
-        }
-
-        footer {
-            background: #1f2024;
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        @media (max-width: 1024px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .footer-logo {
-            color: white;
+        .big-text {
             font-size: 1.5rem;
             font-weight: bold;
-            text-decoration: none;
+            color: #28a745;
+            background: #d4edda;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
+        .leaderboard-section {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .social-link {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            transition: all 0.3s ease;
+        .timer {
+            font-size: 2rem;
+            color: #28a745;
+            margin-bottom: 30px;
+            font-weight: bold;
         }
 
-        .social-link:hover {
-            background: #f96d30;
-            transform: translateY(-2px);
+        .leaderboard {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            min-height: 300px;
         }
 
-        .footer-links {
+        .leaderboard h3 {
+            color: #28a745;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .empty-state {
+            color: #666;
+            font-style: italic;
+            padding: 40px 20px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            border: 2px dashed #ccc;
+        }
+
+        .leaderboard-header {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-column h3 {
-            color: #ccc;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-column ul li a {
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+            padding: 10px 20px;
+            background: #28a745;
             color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: #22c55e;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 2rem;
-            padding-top: 2rem;
-            text-align: center;
-            color: #ccc;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-content > * {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .hero h1 {
-            animation-delay: 0.2s;
-        }
-
-        .hero p {
-            animation-delay: 0.4s;
-        }
-
-        .cta-button {
-            animation-delay: 0.6s;
-        }
-
-        /* Mobile Navigation */
-        @media (max-width: 1023px) {
-            nav {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                border-top: 1px solid rgba(0, 0, 0, 0.1);
-                flex-direction: column;
-                gap: 0.5rem;
-                padding: 1rem;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .header-content {
-                padding: 1rem;
-            }
-
-            .hero-content {
-                padding: 1rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .cta-button {
-                padding: 0.875rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            nav {
-                gap: 0.75rem;
-            }
-
-            .nav-btn {
-                padding: 0.625rem 1.25rem;
-                font-size: 0.85rem;
-            }
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <a href="#" class="logo">Meme Fund</a>
-            <nav id="nav">
-                <a href="#nasdaq-section" class="nav-btn nasdaq">
-                    📈 NASDAQ Listing
-                </a>
-                <a href="#sec-story" class="nav-btn sec">
-                    🏛️ SEC Approval
-                </a>
-                <a href="https://x.com/home" target="_blank" class="nav-btn twitter">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    X.com
-                </a>
-            </nav>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        </div>
-    </header>
+    <div class="top-left-msg">Scroll down to see where u are in stimmy leaderboard to earn monies :)</div>
+    <a href="https://x.com/StimmyCoinXD" class="twitter-btn" target="_blank">X</a>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Meme Fund</h1>
-            <p>We legally registered a hedgefund with our coin as the only asset to flip blackrock</p>
-            <a href="#sec-story" class="cta-button">
-                How We Did It
-                <svg class="arrow-icon" viewBox="0 0 45 8" fill="currentColor">
-                    <path d="M44.3536 4.35355C44.5488 4.15829 44.5488 3.84171 44.3536 3.64645L41.1716 0.464466C40.9763 0.269204 40.6597 0.269204 40.4645 0.464466C40.2692 0.659728 40.2692 0.976311 40.4645 1.17157L43.2929 4L40.4645 6.82843C40.2692 7.02369 40.2692 7.34027 40.4645 7.53553C40.6597 7.7308 40.9763 7.7308 41.1716 7.53553L44.3536 4.35355ZM0 4.5H44V3.5H0V4.5Z"/>
-                </svg>
-            </a>
-        </div>
-    </section>
+    <div class="container">
+        <h1>STIMMY</h1>
+        
+        <p>Hold Stimmy, get more Stimmy.</p>
 
-    <!-- SEC Story Section -->
-    <section id="sec-story" class="sec-story">
-        <div class="container">
-            <div class="story-content">
-                <h2>How We Did It: SEC Approval Success</h2>
-                <div class="story-timeline">
-                    <div class="story-paragraph">
-                        <h3>📋 Filing Application</h3>
-                        <p>We submitted our hedge fund registration with the SEC, declaring our unique asset strategy focused on our proprietary coin.</p>
-                    </div>
-                    
-                    <div class="story-paragraph">
-                        <h3>💰 Asset Valuation</h3>
-                        <p>We claimed our asset is worth $1 billion, backed by comprehensive market analysis and future projections.</p>
-                    </div>
-                    
-                    <div class="story-paragraph">
-                        <h3>⏰ The Wait</h3>
-                        <p>After exactly 1 month of review, regulatory scrutiny, and documentation verification...</p>
-                    </div>
-                    
-                    <div class="story-paragraph success">
-                        <h3>✅ SEC Approval!</h3>
-                        <p>We received official SEC approval for our hedge fund registration, making us legally compliant to operate with our billion-dollar asset strategy.</p>
-                    </div>
-                </div>
-                
-                <img src="sec-approval.png" alt="SEC Approval Document" class="sec-document-img">
-                
-                <div class="sec-button-container">
-                    <a href="https://efoservices.fec.gov/webcheck/services/results/LNGO250830926050" target="_blank" class="sec-verification-btn">
-                        🏛️ Verify SEC Registration
-                    </a>
-                </div>
+        <div class="big-text">
+            Every holder gets sent more tokens through buybacks
+        </div>
+
+        <h2>How it works:</h2>
+        <p>1. Buy Stimmy<br>
+        2. Hold in your wallet<br>
+        3. Automatically receive more tokens<br>
+        4. Price goes up from buy pressure</p>
+
+        <div class="big-text">
+            The ultimate stimmy for holders
+        </div>
+
+        <p>Simple. Effective. Rewarding.</p>
+    </div>
+
+    <div class="leaderboard-section">
+        <div class="timer" id="timer">10:00</div>
+        
+        <div class="leaderboard">
+            <h3>🏆 Holder Leaderboard</h3>
+            <div class="leaderboard-header">
+                <div>Rank</div>
+                <div>Wallet</div>
+                <div>Balance</div>
+            </div>
+            <div class="empty-state">
+                No holders yet... Be the first! 🚀
             </div>
         </div>
-    </section>
-
-    <!-- NASDAQ Section -->
-    <section id="nasdaq-section" class="nasdaq-section">
-        <div class="container">
-            <div class="nasdaq-content">
-                <h2>📈 NASDAQ Listing Achievement</h2>
-                
-                <!-- Key Features -->
-                <div class="nasdaq-features">
-                    <div class="nasdaq-feature">
-                        <span class="nasdaq-feature-icon">🎯</span>
-                        <h3>Market Cap</h3>
-                        <p>$1 billion valuation recognized by NASDAQ's listing committee</p>
-                    </div>
-                    <div class="nasdaq-feature">
-                        <span class="nasdaq-feature-icon">⚡</span>
-                        <h3>Trading Volume</h3>
-                        <p>High liquidity standards met with institutional-grade trading infrastructure</p>
-                    </div>
-                    <div class="nasdaq-feature">
-                        <span class="nasdaq-feature-icon">🔒</span>
-                        <h3>Compliance</h3>
-                        <p>Full regulatory compliance with NASDAQ's stringent listing requirements</p>
-                    </div>
-                </div>
-
-                <!-- Timeline Process -->
-                <div class="nasdaq-timeline">
-                    <h3>Our NASDAQ Journey</h3>
-                    <div class="timeline-steps">
-                        <div class="timeline-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Initial Application</h4>
-                                <p>Submitted comprehensive listing application with financial documentation</p>
-                            </div>
-                        </div>
-                        <div class="timeline-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Due Diligence Review</h4>
-                                <p>NASDAQ conducted thorough review of our hedge fund operations and governance</p>
-                            </div>
-                        </div>
-                        <div class="timeline-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Financial Verification</h4>
-                                <p>Independent audits confirmed our $1B asset valuation and trading capabilities</p>
-                            </div>
-                        </div>
-                        <div class="timeline-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Official Approval</h4>
-                                <p>Received NASDAQ listing approval making us exchange-traded and publicly accessible</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Document Showcase -->
-                <div class="nasdaq-document-showcase">
-                    <img src="nasdaq-approval.png" alt="NASDAQ Approval Document" class="nasdaq-document-img">
-                    <p class="document-caption">Official NASDAQ listing approval documentation</p>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="nasdaq-buttons">
-                    <a href="#" target="_blank" class="nasdaq-verification-btn">
-                        📈 View NASDAQ Listing
-                    </a>
-                    <a href="#" class="nasdaq-secondary-btn">
-                        📊 Trading Information
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="footer-logo">Meme Fund</a>
-                    <div class="social-links">
-                        <a href="#" class="social-link">📧</a>
-                        <a href="#" class="social-link">🐦</a>
-                        <a href="#" class="social-link">💬</a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3>Legal</h3>
-                        <ul>
-                            <li><a href="#">SEC Filings</a></li>
-                            <li><a href="#">NASDAQ Listing</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Investment</h3>
-                        <ul>
-                            <li><a href="#">Fund Overview</a></li>
-                            <li><a href="#">Performance</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Strategy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Pump Limited. All rights reserved. | NASDAQ Listed | Pump.fun Regulated</p>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // Add smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Mobile menu toggle
-        function toggleMenu() {
-            const nav = document.getElementById('nav');
-            if (nav.style.display === 'flex') {
-                nav.style.display = 'none';
+        // 10 minute countdown timer
+        let timeLeft = 10 * 60; // 10 minutes in seconds
+        
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            
+            document.getElementById('timer').textContent = 
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft > 0) {
+                timeLeft--;
             } else {
-                nav.style.display = 'flex';
+                timeLeft = 10 * 60; // Reset to 10 minutes
             }
         }
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.backdropFilter = 'blur(10px)';
-                header.style.borderBottom = '1px solid rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'transparent';
-                header.style.backdropFilter = 'none';
-                header.style.borderBottom = 'none';
-            }
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const nav = document.getElementById('nav');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
-            if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
-                if (window.innerWidth < 1024) {
-                    nav.style.display = 'none';
-                }
-            }
-        });
+        
+        // Update timer every second
+        setInterval(updateTimer, 1000);
+        updateTimer(); // Initial call
     </script>
 </body>
 </html>
+
