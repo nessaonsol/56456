@@ -3,180 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lewis</title>
-    <link rel="icon" type="image/x-icon" href="rats.png">
+    <title>MovieFun - Vote for Movies</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Arial', sans-serif;
-            background: #fafafa;
+            background: white;
             color: #333;
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
-        
+
         .container {
-            max-width: 600px;
-            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background: #22c55e;
+            color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .info-box {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .info-title {
+            color: #16a34a;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .voting-section {
+            background: #f9fafb;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #16a34a;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
             text-align: center;
         }
-        
-        h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            color: #2c2c2c;
-            letter-spacing: 2px;
+
+        .movie-option {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
         }
-        
-        .subtitle {
-            font-size: 1.1rem;
+
+        .movie-option:hover {
+            border-color: #22c55e;
+        }
+
+        .movie-info h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .movie-genre {
             color: #666;
-            margin-bottom: 2rem;
-            font-weight: 300;
+            font-size: 0.9rem;
         }
-        
-        .description {
-            font-size: 1rem;
-            color: #555;
-            max-width: 500px;
-            margin: 0 auto 2rem auto;
-            line-height: 1.8;
-        }
-        
-        .rat-icon {
-            font-size: 4rem;
-            margin: 2rem 0;
-            opacity: 0.7;
-        }
-        
-        .status {
-            display: inline-block;
-            background: linear-gradient(135deg, #00D4AA, #00B894);
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            color: white;
-            margin-top: 1rem;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
-            text-decoration: none;
-        }
-        
-        .status:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
-            background: linear-gradient(135deg, #00B894, #00A085);
-        }
-        
-        .status:active {
-            transform: translateY(0px);
-            box-shadow: 0 2px 10px rgba(0, 212, 170, 0.3);
-        }
-        
-        .divider {
-            width: 50px;
-            height: 1px;
-            background: #ddd;
-            margin: 2rem auto;
-        }
-        
-        .x-button {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 25px;
-            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3);
+
+        .vote-area {
             display: flex;
             align-items: center;
-            justify-content: center;
-            z-index: 1000;
+            gap: 15px;
         }
-        
-        .x-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(29, 161, 242, 0.4);
-            background: linear-gradient(135deg, #0d8bd9, #0a7bc4);
+
+        .vote-count {
+            font-weight: bold;
+            color: #16a34a;
         }
-        
-        .x-button:active {
-            transform: translateY(0px);
-            box-shadow: 0 2px 10px rgba(29, 161, 242, 0.3);
+
+        .vote-btn {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
         }
-        
-        .x-icon {
-            font-size: 1.2rem;
+
+        .vote-btn:hover {
+            background: #16a34a;
+        }
+
+        .vote-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .add-movie {
+            background: white;
+            border: 2px solid #22c55e;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #16a34a;
             font-weight: bold;
         }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #22c55e;
+        }
+
+        .add-btn {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .add-btn:hover {
+            background: #16a34a;
+        }
+
+        .how-it-works {
+            background: #f0fdf4;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .feature {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .movie-option {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
             }
             
-            .container {
-                padding: 1.5rem;
-            }
-            
-            .x-button {
-                top: 1rem;
-                right: 1rem;
-                width: 45px;
-                height: 45px;
-            }
-            
-            .x-icon {
-                font-size: 1.1rem;
-            }
-            
-            .status {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
+            .vote-area {
+                width: 100%;
+                justify-content: space-between;
             }
         }
     </style>
 </head>
 <body>
-    <button class="x-button" onclick="window.open('https://x.com/LewvisVsAi', '_blank')">
-        <span class="x-icon">𝕏</span>
-    </button>
-    
     <div class="container">
-        <h1>LEWIS</h1>
-        <div class="subtitle">An Experiment in Life Vs AI</div>
-        
-        <div class="rat-icon">🐀</div>
-        
-        <div class="description">
-            Lewis is a rat living in a specially designed cage where every aspect of his life is controlled by ChatGPT. From his feeding schedule to environmental conditions, an AI makes all the decisions about his daily existence, creating a unique intersection between artificial intelligence and biological life.
+        <header>
+            <h1 class="logo">🎬 MovieFun</h1>
+            <p class="tagline">Vote for movies • Watch together • High quality streaming</p>
+        </header>
+
+        <div class="info-box">
+            <div class="info-title">
+                🖥️ Private Virtual Server Streaming
+            </div>
+            <p>MovieFun runs on a dedicated private virtual server that streams movies directly from Netflix. This ensures 10/10 quality streaming that never buffers or goes down. Every movie plays in perfect HD quality with crystal clear audio.</p>
         </div>
-        
-        <div class="divider"></div>
-        
-        <button class="status" onclick="window.open('https://pump.fun/home', '_blank')">Live on PumpFun</button>
-        
-        <div style="margin-top: 1rem; font-size: 0.9rem; color: #777;">
-            Follow Lewis's AI-controlled journey in real-time as ChatGPT makes every decision about his cage life.
+
+        <div class="voting-section">
+            <h2 class="section-title">Vote for the Next Movie</h2>
+            
+            <div class="movie-option">
+                <div class="movie-info">
+                    <h3>Stranger Things (Season 4)</h3>
+                    <div class="movie-genre">Sci-Fi Drama • Netflix Original</div>
+                </div>
+                <div class="vote-area">
+                    <span class="vote-count">0 votes</span>
+                    <button class="vote-btn" onclick="vote(this)">Vote</button>
+                </div>
+            </div>
+
+            <div class="movie-option">
+                <div class="movie-info">
+                    <h3>The Queen's Gambit</h3>
+                    <div class="movie-genre">Drama • Netflix Original</div>
+                </div>
+                <div class="vote-area">
+                    <span class="vote-count">0 votes</span>
+                    <button class="vote-btn" onclick="vote(this)">Vote</button>
+                </div>
+            </div>
+
+            <div class="movie-option">
+                <div class="movie-info">
+                    <h3>Squid Game</h3>
+                    <div class="movie-genre">Thriller • Netflix Original</div>
+                </div>
+                <div class="vote-area">
+                    <span class="vote-count">0 votes</span>
+                    <button class="vote-btn" onclick="vote(this)">Vote</button>
+                </div>
+            </div>
+
+            <div class="movie-option">
+                <div class="movie-info">
+                    <h3>Breaking Bad</h3>
+                    <div class="movie-genre">Crime Drama • Available on Netflix</div>
+                </div>
+                <div class="vote-area">
+                    <span class="vote-count">0 votes</span>
+                    <button class="vote-btn" onclick="vote(this)">Vote</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-movie">
+            <h2 class="section-title">Suggest a Movie</h2>
+            <div class="form-group">
+                <label for="movieTitle">Movie/Show Name</label>
+                <input type="text" id="movieTitle" placeholder="Enter any movie or show available on Netflix">
+            </div>
+            <button class="add-btn" onclick="addMovie()">Add to Vote Pool</button>
+        </div>
+
+        <div class="how-it-works">
+            <h2 class="section-title">How MovieFun Works</h2>
+            <div class="feature">Movies stream directly from Netflix through our private virtual server</div>
+            <div class="feature">Perfect 10/10 quality - no buffering, no downtime, crystal clear HD</div>
+            <div class="feature">When a movie ends, the highest voted movie plays next automatically</div>
+            <div class="feature">Suggest any movie or show available on Netflix</div>
+            <div class="feature">Vote once per movie - most votes wins</div>
+            <div class="feature">Community decides what plays 24/7</div>
         </div>
     </div>
+
+    <script>
+        let userVoted = new Set();
+        
+        function vote(button) {
+            const movieOption = button.parentElement.parentElement;
+            const movieTitle = movieOption.querySelector('h3').textContent;
+            
+            if (userVoted.has(movieTitle)) {
+                return;
+            }
+            
+            userVoted.add(movieTitle);
+            
+            const voteCount = button.parentElement.querySelector('.vote-count');
+            const currentVotes = parseInt(voteCount.textContent.split(' ')[0]);
+            voteCount.textContent = `${currentVotes + 1} votes`;
+            
+            button.textContent = 'Voted!';
+            button.disabled = true;
+            button.style.background = '#9ca3af';
+        }
+
+        function addMovie() {
+            const title = document.getElementById('movieTitle').value.trim();
+            
+            if (!title) {
+                alert('Please enter a movie or show name!');
+                return;
+            }
+            
+            const votingSection = document.querySelector('.voting-section');
+            const newMovie = document.createElement('div');
+            newMovie.className = 'movie-option';
+            newMovie.innerHTML = `
+                <div class="movie-info">
+                    <h3>${title}</h3>
+                    <div class="movie-genre">User Suggestion • Netflix</div>
+                </div>
+                <div class="vote-area">
+                    <span class="vote-count">1 votes</span>
+                    <button class="vote-btn" onclick="vote(this)">Vote</button>
+                </div>
+            `;
+            
+            votingSection.appendChild(newMovie);
+            document.getElementById('movieTitle').value = '';
+            
+            alert('Movie added to voting pool!');
+        }
+    </script>
 </body>
 </html>
