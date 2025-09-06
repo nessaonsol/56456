@@ -1,160 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Rat Vs AI</title>
-    <link rel="icon" type="image/x-icon" href="RATS.PNG">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #fafafa;
-            color: #333;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .container {
-            max-width: 600px;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            color: #2c2c2c;
-            letter-spacing: 2px;
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-        
-        .description {
-            font-size: 1rem;
-            color: #555;
-            max-width: 500px;
-            margin: 0 auto 2rem auto;
-            line-height: 1.8;
-        }
-        
-        .rat-icon {
-            font-size: 4rem;
-            margin: 2rem 0;
-            opacity: 0.7;
-        }
-        
-        .status {
-            display: inline-block;
-            background: #f0f0f0;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 1rem;
-        }
-        
-        .divider {
-            width: 50px;
-            height: 1px;
-            background: #ddd;
-            margin: 2rem auto;
-        }
-        
-        .x-button {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 25px;
-            background: linear-gradient(135deg, #1da1f2, #0d8bd9);
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        
-        .x-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(29, 161, 242, 0.4);
-            background: linear-gradient(135deg, #0d8bd9, #0a7bc4);
-        }
-        
-        .x-button:active {
-            transform: translateY(0px);
-            box-shadow: 0 2px 10px rgba(29, 161, 242, 0.3);
-        }
-        
-        .x-icon {
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 1.5rem;
-            }
-            
-            .x-button {
-                top: 1rem;
-                right: 1rem;
-                width: 45px;
-                height: 45px;
-            }
-            
-            .x-icon {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everyone Can Draw On The Token</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand:wght@400@1&display=swap');
+    
+    :root {
+      --bg-primary: #111827;
+      --bg-secondary: #1f2937;
+      --bg-tertiary: #374151;
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+      --text-muted: #9ca3af;
+      --border-color: #4b5563;
+      --accent-color: #6366f1;
+      --font-hand: 'Patrick Hand', cursive;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-hand);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(31, 41, 55, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+    }
+
+    .hero-text {
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 40;
+      pointer-events: none;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #6c5ce7);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      animation: gradient 3s ease-in-out infinite;
+    }
+
+    .hero-text p {
+      font-size: 1.4rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @keyframes gradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Drawing Canvas */
+    .drawing-container {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+    }
+
+    .drawing-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: crosshair;
+      background: white;
+    }
+
+    /* Tools */
+    .tools {
+      position: fixed;
+      top: 90px;
+      left: 20px;
+      z-index: 60;
+      background: rgba(31, 41, 55, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 15px;
+      border: 1px solid var(--border-color);
+    }
+
+    .tool-group {
+      margin-bottom: 15px;
+    }
+
+    .tool-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .tool-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .color-picker {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .brush-size {
+      width: 100px;
+      margin: 0;
+    }
+
+    .clear-btn {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: var(--font-hand);
+      font-size: 0.9rem;
+    }
+
+    .clear-btn:hover {
+      background: #ff5252;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .tools {
+        top: 80px;
+        left: 10px;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <button class="x-button" onclick="window.open('https://x.com/home', '_blank')">
-        <span class="x-icon">𝕏</span>
-    </button>
-    
-    <div class="container">
-        <h1>LAB RAT VS AI</h1>
-        <div class="subtitle">An Experiment in Life Vs AI</div>
-        
-        <div class="rat-icon">🐀</div>
-        
-        <div class="description">
-            A rat living in a specially designed cage where every aspect of its life is controlled by ChatGPT. From feeding schedules to environmental conditions, an AI makes all the decisions about its daily existence, creating a unique intersection between artificial intelligence and biological life.
-        </div>
-        
-        <div class="divider"></div>
-        
-        <button class="status" onclick="window.open('https://pump.fun/home', '_blank')">Live on PumpFun</button>
-        
-        <div style="margin-top: 1rem; font-size: 0.9rem; color: #777;">
-            Follow the AI-controlled journey in real-time as ChatGPT makes every decision about cage life.
-        </div>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo">Everyone Can Draw On The Token</div>
+      <ul class="nav-links">
+        <li><a href="#canvas">Canvas</a></li>
+        <li><a href="#artists">Artists</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#dex">DEX Updates</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Text Overlay -->
+  <div class="hero-text" style="display: none;">
+    <h1>EVERYONE CAN DRAW ON THE TOKEN</h1>
+    <p>A project where we pay artists to draw for our token every new piece of art is added onto the canvas and we will update dex to change the token image to the canvas</p>
+  </div>
+
+  <!-- Drawing Tools -->
+  <div class="tools">
+    <div class="tool-group">
+      <label class="tool-label">Color</label>
+      <input type="color" class="color-picker" id="colorPicker" value="#000000">
     </div>
+    <div class="tool-group">
+      <label class="tool-label">Brush Size</label>
+      <input type="range" class="brush-size" id="brushSize" min="1" max="50" value="5">
+    </div>
+    <div class="tool-group">
+      <button class="clear-btn" id="clearCanvas">Clear</button>
+    </div>
+  </div>
+
+  <!-- Drawing Canvas -->
+  <div class="drawing-container">
+    <canvas class="drawing-canvas" id="drawingCanvas"></canvas>
+  </div>
+
+  <script>
+    // Get canvas and context
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    const colorPicker = document.getElementById('colorPicker');
+    const brushSize = document.getElementById('brushSize');
+    const clearBtn = document.getElementById('clearCanvas');
+
+    // Set canvas size
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight - 70; // Account for header
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Initialize canvas
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Drawing variables
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Drawing functions
+    function startDrawing(e) {
+      isDrawing = true;
+      [lastX, lastY] = getMousePos(e);
+    }
+
+    function draw(e) {
+      if (!isDrawing) return;
+      
+      const [currentX, currentY] = getMousePos(e);
+      
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(currentX, currentY);
+      ctx.strokeStyle = colorPicker.value;
+      ctx.lineWidth = brushSize.value;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.stroke();
+      
+      [lastX, lastY] = [currentX, currentY];
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    function getMousePos(e) {
+      const rect = canvas.getBoundingClientRect();
+      return [
+        e.clientX - rect.left,
+        e.clientY - rect.top
+      ];
+    }
+
+    // Mouse events
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+
+    // Touch events for mobile
+    canvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent('mousedown', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    });
+
+    canvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const mouseEvent = new MouseEvent('mousemove', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+      });
+      canvas.dispatchEvent(mouseEvent);
+    });
+
+    canvas.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      const mouseEvent = new MouseEvent('mouseup', {});
+      canvas.dispatchEvent(mouseEvent);
+    });
+
+    // Clear canvas
+    clearBtn.addEventListener('click', () => {
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    });
+
+    // Hide hero text after a few seconds
+    setTimeout(() => {
+      document.querySelector('.hero-text').style.opacity = '0.3';
+      document.querySelector('.hero-text').style.transition = 'opacity 1s ease';
+    }, 3000);
+  </script>
 </body>
 </html>
