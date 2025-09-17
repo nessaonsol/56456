@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobWheel - Find Your Next Job</title>
-    <link rel="icon" type="image/x-icon" href="jobwheel.png">
+    <title>Global BagWorkers</title>
+    <link rel="icon" type="image/x-icon" href="bagwork.png">
     <style>
         * {
             margin: 0;
@@ -13,10 +13,11 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 100%);
+            color: #1a1a1a;
             line-height: 1.6;
-            color: #333;
-            background: #0077b5;
+            min-height: 100vh;
         }
         
         .container {
@@ -26,214 +27,184 @@
         }
         
         header {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(250, 249, 247, 0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
         
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -1px;
         }
         
         .nav-links {
             display: flex;
-            gap: 30px;
             list-style: none;
+            gap: 2rem;
         }
         
         .nav-links a {
-            color: white;
+            color: #1a1a1a;
             text-decoration: none;
             font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: background 0.2s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
         
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.15);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a1a1a;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        main {
+            margin-top: 80px;
         }
         
         .hero {
-            text-align: center;
-            padding: 0;
-            color: white;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #faf9f7 0%, #f0ede8 100%);
         }
         
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 16px;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            font-weight: 300;
+            letter-spacing: -2px;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 32px;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            color: #4a4a4a;
+            max-width: 600px;
+            margin: 0 auto 2rem;
         }
         
         .cta-button {
             display: inline-block;
-            background: white;
-            color: #0077b5;
-            padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 1rem 2.5rem;
+            background: #1a1a1a;
+            color: #faf9f7;
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 26, 26, 0.2);
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(26, 26, 26, 0.3);
         }
         
-        .content-section {
-            background: white;
-            padding: 60px 0;
+        .features {
+            padding: 5rem 0;
+            background: #faf9f7;
+            text-align: center;
+        }
+        
+        .features p {
+            font-size: 1.3rem;
+            color: #4a4a4a;
+            max-width: 800px;
+            margin: 2rem auto;
+            line-height: 1.8;
         }
         
         .section-title {
-            font-size: 2.2rem;
-            font-weight: 600;
             text-align: center;
-            margin-bottom: 16px;
-            color: #0077b5;
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-weight: 300;
         }
         
         .section-subtitle {
-            font-size: 1.1rem;
             text-align: center;
-            margin-bottom: 48px;
-            color: #666;
+            font-size: 1.2rem;
+            color: #6a6a6a;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin: 48px 0;
-        }
-        
-        .stat-card {
+        .stream-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f5f3f0 0%, #ede9e4 100%);
             text-align: center;
-            padding: 32px 24px;
-            border-radius: 12px;
-            background: #f8fafe;
-            border: 2px solid #e1f2ff;
         }
         
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #0077b5;
-            display: block;
-            margin-bottom: 8px;
+        .stream-box {
+            background: #1a1a1a;
+            color: #faf9f7;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 3rem auto 0;
+            box-shadow: 0 15px 40px rgba(26, 26, 26, 0.2);
         }
         
-        .stat-text {
-            font-size: 1rem;
-            color: #666;
-        }
-        
-        .features-section {
-            background: #f8fafe;
-            padding: 60px 0;
-        }
-        
-        .features-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            margin-top: 48px;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 32px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            box-shadow: 0 2px 8px rgba(0, 119, 181, 0.08);
-            border: 1px solid #e1f2ff;
-        }
-        
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: #0077b5;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
-            flex-shrink: 0;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #0077b5;
-        }
-        
-        .feature-card p {
-            color: #666;
-            line-height: 1.5;
-        }
-        
-        .feature-content {
-            flex: 1;
-        }
-        
-        .final-cta {
-            background: #0077b5;
-            color: white;
-            text-align: center;
-            padding: 60px 0;
-        }
-        
-        .final-cta h2 {
+        .stream-box h3 {
             font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
         }
         
-        .final-cta p {
+        .stream-box p {
             font-size: 1.1rem;
-            margin-bottom: 32px;
             opacity: 0.9;
         }
         
-        footer {
-            background: #003d5c;
+        .live-indicator {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #ff4444;
             color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        footer {
+            background: #1a1a1a;
+            color: #faf9f7;
+            padding: 3rem 0;
             text-align: center;
-            padding: 24px 0;
         }
         
         footer p {
@@ -248,133 +219,81 @@
             .nav-links {
                 display: none;
             }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .feature-card {
-                flex-direction: column;
-                text-align: center;
-                gap: 16px;
-            }
-            
-            .feature-icon {
-                margin: 0 auto;
-            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">
-                JobWheel
-            </div>
+            <a href="#" class="logo">Global BagWorkers</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#features">How It Works</a></li>
+                <li><a href="#stream">Live Stream</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>JobWheel</h1>
-            <p>Using Pumpfun Fees To Create Jobs</p>
-            <a href="#" class="cta-button" onclick="alert('Sign up coming soon!')">Get Started</a>
-        </div>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Global BagWorkers</h1>
+                <p>We pay people around the world to work for our coin/bag and they all stream it on our coin at the same time</p>
+                <a href="#features" class="cta-button">Learn More</a>
+            </div>
+        </section>
 
-    <section class="content-section" id="about">
-        <div class="container">
-            <h2 class="section-title">The Job Market Challenge</h2>
-            <p class="section-subtitle">
-                Unemployment continues to rise daily, making it harder for qualified professionals to find meaningful work.
-            </p>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-number">7.2M</span>
-                    <span class="stat-text">Americans unemployed</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">15%</span>
-                    <span class="stat-text">Youth unemployment</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">3.8M</span>
-                    <span class="stat-text">Long-term unemployed</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">Daily</span>
-                    <span class="stat-text">Numbers increasing</span>
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">How We Work</h2>
+                <p>We use fees to pay people all over the world to promote our coin and we stream all of it at the same time on PumpFun. Complete transparency through live streaming - watch our global promotional activities in real-time and see exactly how we operate our worldwide network of promoters.</p>
+            </div>
+        </section>
+
+        <section id="stream" class="stream-section">
+            <div class="container">
+                <h2 class="section-title">Live on PumpFun</h2>
+                <p class="section-subtitle">Watch our global promotional activities in real-time</p>
+                
+                <div class="stream-box">
+                    <div class="live-indicator">🔴 LIVE</div>
+                    <h3>Streaming Now on PumpFun</h3>
+                    <p>All our promotional activities are streamed live for complete transparency. See our global team in action as they promote our coin across different platforms and regions. No hidden activities - everything is broadcast in real-time.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="features-section" id="features">
-        <div class="container">
-            <h2 class="section-title">How JobWheel Helps</h2>
-            <p class="section-subtitle">
-                Simple tools to connect job seekers with the right opportunities
-            </p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">SM</div>
-                    <div class="feature-content">
-                        <h3>Smart Matching</h3>
-                        <p>We contact unemployed individuals and pay them pumpfun fees to promote our memecoin to their networks, creating income opportunities while building our community onchain</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">SB</div>
-                    <div class="feature-content">
-                        <h3>Skill Building</h3>
-                        <p>Learn effective social media promotion and cryptocurrency marketing techniques to maximize your earning potential in the digital economy</p>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">NW</div>
-                    <div class="feature-content">
-                        <h3>Networking</h3>
-                        <p>Expand your social circle by sharing our memecoin with friends and family - all transactions verified onchain for transparent payment tracking</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="final-cta" id="contact">
-        <div class="container">
-            <h2>Ready to Find Your Next Job?</h2>
-            <p>Join JobWheel and take control of your career today</p>
-            <a href="#" class="cta-button" onclick="alert('Registration opening soon!')">Join Now</a>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 JobWheel. Connecting talent with opportunity.</p>
+            <p>&copy; 2024 Global BagWorkers. All rights reserved. | Transparent. Global. Fair.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(250, 249, 247, 0.98)';
+            } else {
+                header.style.background = 'rgba(250, 249, 247, 0.95)';
+            }
         });
     </script>
 </body>
