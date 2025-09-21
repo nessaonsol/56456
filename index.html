@@ -3,142 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troll Coin</title>
+    <title>Asset</title>
+    <link rel="icon" type="image/x-icon" href="deppy.png">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #fffef7 0%, #fffcf0 100%);
-            color: #2c2c2c;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            padding: 2rem;
-            z-index: 1000;
-        }
-
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .nav-btn {
-            background: rgba(255,253,240,0.9);
-            border: 1px solid #e8e5d8;
             color: #2c2c2c;
-            padding: 0.7rem 1.2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-family: 'Georgia', serif;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
+            scroll-behavior: smooth;
+            background: #faf9f7;
         }
-
-        .nav-btn:hover {
-            background: rgba(255,250,230,0.95);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 50%, #faf9f7 100%);
+            color: #2c2c2c;
+            position: relative;
         }
-
-        .x-btn {
-            background: rgba(29, 155, 240, 0.9);
-            color: white;
-            border: 1px solid rgba(29, 155, 240, 0.3);
+        
+        .hero h1 {
+            font-size: 4rem;
             font-weight: bold;
-            font-size: 1.1rem;
-            width: 40px;
-            height: 40px;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 8px rgba(44,44,44,0.1);
+            animation: fadeInUp 1s ease-out;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 4px rgba(44,44,44,0.1);
+            animation: fadeInUp 1s ease-out 0.3s both;
+            color: #4a4a4a;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-arrow {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #2c2c2c;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #2c2c2c;
+        }
+        
+        .scroll-arrow:hover {
+            background: #2c2c2c;
+            color: #faf9f7;
+        }
+        
+        /* Social Links */
+        .social-links {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #2c2c2c;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0;
+            color: #2c2c2c;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: rgba(250, 249, 247, 0.9);
+            backdrop-filter: blur(10px);
         }
-
-        .x-btn:hover {
-            background: rgba(29, 155, 240, 1);
-            transform: translateY(-2px);
+        
+        .social-link:hover {
+            background: #2c2c2c;
+            color: #faf9f7;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44,44,44,0.3);
         }
-
+        
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Content Sections */
+        .section {
+            min-height: 100vh;
+            padding: 80px 5%;
+            display: flex;
+            align-items: center;
+            background: #faf9f7;
+        }
+        
+        .section:nth-child(even) {
+            background: #f5f3f0;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            width: 100%;
         }
-
-        .hero {
-            display: flex;
+        
+        .content-box {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
+            margin-bottom: 60px;
         }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .title {
-            font-size: 6rem;
+        
+        .text-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
             font-weight: bold;
+            letter-spacing: 1px;
             color: #1a1a1a;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
         }
-
-        .tagline {
-            font-size: 1.4rem;
-            color: #555;
-            font-style: italic;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out 1s forwards;
-            margin-bottom: 2rem;
-        }
-
-        .scroll-prompt {
+        
+        .text-content p {
             font-size: 1.2rem;
-            color: #666;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out 2s forwards;
-            margin-top: 2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #4a4a4a;
         }
-
-        .scroll-arrow {
-            font-size: 2rem;
-            color: #888;
-            margin-top: 3rem;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out 3s forwards, bounce 2s infinite 5s;
+        
+        .content-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            border: 2px solid #e8e5e0;
+            transition: all 0.3s ease;
         }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
+        
+        .content-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(44,44,44,0.15);
+            border-color: #d0ccc7;
         }
-
-        @keyframes fadeIn {
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #2c2c2c;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            background: #2c2c2c;
+            color: #faf9f7;
+            box-shadow: 0 5px 15px rgba(44,44,44,0.2);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: #2c2c2c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44,44,44,0.3);
+        }
+        
+        /* Final Section */
+        .final-section {
+            background: linear-gradient(135deg, #faf9f7 0%, #f0ede8 50%, #faf9f7 100%);
+        }
+        
+        .final-section .content-box {
+            margin-bottom: 0;
+        }
+        
+        .final-section h2 {
+            color: #1a1a1a;
+        }
+        
+        .final-section p {
+            color: #4a4a4a;
+        }
+        
+        .final-section .content-image {
+            border-color: #e8e5e0;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -148,163 +228,160 @@
                 transform: translateY(0);
             }
         }
-
-        .content-section {
-            padding: 4rem 0;
-            max-width: 800px;
-            margin: 0 auto;
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
-
-        .about-section {
-            scroll-margin-top: 100px;
-        }
-
-        .features-section {
-            scroll-margin-top: 100px;
-        }
-
-        .subtitle {
-            font-size: 2rem;
-            color: #444;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .description {
-            font-size: 1.3rem;
-            color: #333;
-            margin-bottom: 3rem;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        .features {
-            margin: 4rem 0;
-        }
-
-        .feature {
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .feature h3 {
-            color: #2c2c2c;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        .feature p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .disclaimer {
-            font-style: italic;
-            color: #666;
-            text-align: center;
-            margin: 4rem 0;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .title {
-                font-size: 3.5rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .subtitle {
-                font-size: 1.5rem;
+            .hero p {
+                font-size: 1.2rem;
+                padding: 0 20px;
             }
             
-            .description {
-                font-size: 1.1rem;
+            .content-box {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
             }
-
-            .feature h3 {
-                font-size: 1.5rem;
+            
+            .text-content h2 {
+                font-size: 2rem;
             }
-
-            .tagline {
-                font-size: 1.1rem;
+            
+            .section {
+                padding: 60px 5%;
             }
-
-            .scroll-prompt {
-                font-size: 1rem;
+            
+            .social-links {
+                top: 20px;
+                gap: 15px;
             }
-
-            .scroll-arrow {
-                font-size: 1.5rem;
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
             }
-
-            .navbar {
-                padding: 1rem;
-            }
-
-            .nav-btn {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .x-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+            
+            .social-link svg {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-buttons">
-            <a href="#about" class="nav-btn">About</a>
-            <a href="#features" class="nav-btn">Features</a>
-            <a href="https://x.com/evilproject" target="_blank" class="nav-btn x-btn">𝕏</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="https://x.com/ChinaAssetLol" class="social-link" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
         </div>
-    </nav>
-
-    <div class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="title">Troll Coin</h1>
-                <p class="tagline">A coin made to legally ruin peoples lives</p>
-                <p class="scroll-prompt">Scroll down to discover more</p>
-                <div class="scroll-arrow">↓</div>
-            </div>
-        </section>
         
-        <section class="content-section about-section" id="about">
-            <p class="subtitle">The cryptocurrency that embraces inconvenience</p>
+        <h1>Asset Coin</h1>
+        <p>The meme we made the chinese government turn into an asset</p>
+        <div class="scroll-indicator" onclick="scrollToNext()">
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+    
+    <!-- Section 1 -->
+    <section class="section" id="section1">
+        <div class="container">
+            <div class="content-box">
+                <div class="text-content">
+                    <h2>The Beginning</h2>
+                    <p>It all started with a wild idea – what if we could legally turn a beloved internet meme into a registered asset in China, just to troll the government while creating something genuinely valuable? We wanted to push boundaries, test limits, and prove that memes aren't just jokes – they're cultural assets with real worth. This wasn't just about making another token; it was about making a statement that even governments can't ignore.</p>
+                    <button class="btn">Learn More</button>
+                </div>
+                <img src="image1.png" alt="Revolutionary Meme Technology" class="content-image">
+            </div>
             
-            <div class="description">
-                <p>Unlike typical cryptocurrencies that aim to help people, Troll Coin takes a different approach. We proudly use our fees and resources to create inconvenience and discomfort for others, all within legal boundaries.</p>
-            </div>
-        </section>
-
-        <section class="features-section" id="features">
-            <div class="features">
-                <div class="feature">
-                    <h3>🏠 Housing Disruption</h3>
-                    <p>We provide funds to landlords specifically to facilitate evictions and displace tenants, making housing less accessible for those who need it most.</p>
+            <div class="content-box">
+                <div class="text-content">
+                    <h2>How?</h2>
+                    <p>Our master plan was beautifully simple yet brilliantly complex. We registered a legitimate US company and approached Chinese investors with a straight face, offering them shares in a product called "ASSET" – which just happened to be our beloved meme. By leveraging international business structures and playing within the system, we found a way to make internet culture into something tangible and tradeable. It was corporate trolling at its finest.</p>
+                    <button class="btn">Join Community</button>
                 </div>
-
-                <div class="feature">
-                    <h3>🍞 Food Bank Interference</h3>
-                    <p>Our system purchases food from food banks and charitable organizations, reducing the supply available to families and individuals in need.</p>
-                </div>
-
-                <div class="feature">
-                    <h3>⚖️ Legally Questionable</h3>
-                    <p>Every action we take is technically legal, but designed to maximize inconvenience and social disruption within regulatory boundaries.</p>
-                </div>
+                <img src="image2.png" alt="Community First Approach" class="content-image">
             </div>
-
-            <div class="disclaimer">
-                <p><strong>Disclaimer:</strong> Troll Coin operates within legal frameworks while actively working against social welfare and community well-being. All activities are designed to inconvenience others and create systemic barriers.</p>
+        </div>
+    </section>
+    
+    <!-- Section 2 -->
+    <section class="section" id="section2">
+        <div class="container">
+            <div class="content-box">
+                <div class="text-content">
+                    <h2>Was it possible?</h2>
+                    <p>Absolutely! China's regulatory landscape, with its unique combination of loose enforcement and bureaucratic flexibility, created the perfect storm for our experiment. The legal loopholes were wide enough to drive a meme truck through, and we did exactly that. What seemed impossible in most countries became not just possible, but surprisingly straightforward when you know which buttons to push and forms to file.</p>
+                    <button class="btn">Explore Technology</button>
+                </div>
+                <img src="image3.png" alt="Solana-Powered Innovation" class="content-image">
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+    
+    <!-- Final Section -->
+    <section class="section final-section" id="final">
+        <div class="container">
+            <div class="content-box">
+                <div class="text-content">
+                    <h2>How can I check this out to see if it's real?</h2>
+                    <p>We get it – this sounds too crazy to be true. But that's exactly why we documented everything. From corporate filing receipts to investor communications, we've kept a paper trail that would make any auditor proud. We're not just claiming to have done the impossible; we're ready to prove it. Check our verified documents, examine our legal filings, and see for yourself how we turned internet culture into a legitimate business asset.</p>
+                    <button class="btn">View Proof</button>
+                </div>
+                <img src="image4.png" alt="Join the Asset Revolution" class="content-image">
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function scrollToNext() {
+            document.getElementById('section1').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.content-box').forEach(box => {
+            observer.observe(box);
+        });
+    </script>
 </body>
 </html>
