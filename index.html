@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee</title>
-    <link rel="icon" type="image/x-icon" href="cz.png">
+    <title>CoinWheel</title>
     <style>
         * {
             margin: 0;
@@ -13,360 +12,369 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             line-height: 1.6;
-            color: #2c2c2c;
-            scroll-behavior: smooth;
-            background: #ffffff;
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 60vh;
-            padding: 80px 5% 60px 5%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: #ffffff;
-            color: #2c2c2c;
-            position: relative;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(44,44,44,0.1);
-            animation: fadeInUp 1s ease-out;
-            letter-spacing: 2px;
-            color: #1a1a1a;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 4px rgba(44,44,44,0.1);
-            animation: fadeInUp 1s ease-out 0.3s both;
-            color: #4a4a4a;
-        }
-        
-        .scroll-indicator {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-        
-        .scroll-arrow {
-            width: 30px;
-            height: 30px;
-            border: 2px solid #2c2c2c;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #2c2c2c;
-        }
-        
-        .scroll-arrow:hover {
-            background: #2c2c2c;
-            color: #ffffff;
-        }
-        
-        /* Social Links */
-        .social-links {
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 10;
-        }
-        
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border: 2px solid #2c2c2c;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2c2c2c;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-        }
-        
-        .social-link:hover {
-            background: #2c2c2c;
-            color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(44,44,44,0.3);
-        }
-        
-        .social-link svg {
-            width: 24px;
-            height: 24px;
-        }
-        
-        /* Content Sections */
-        .section {
-            min-height: auto;
-            padding: 60px 5%;
-            display: flex;
-            align-items: center;
-            background: #ffffff;
-        }
-        
-        .section:nth-child(even) {
-            background: #ffffff;
+            color: #333;
+            background: #0077b5;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            width: 100%;
+            padding: 0 20px;
         }
         
-        .content-box {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 60px;
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 60px;
         }
         
-        .text-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: #1a1a1a;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .text-content p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: #4a4a4a;
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
         }
         
-        .content-image {
-            width: 100%;
-            height: 300px;
-            border-radius: 15px;
-            object-fit: cover;
-            border: 2px solid #e8e5e0;
-            transition: all 0.3s ease;
-        }
-        
-        .content-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(44,44,44,0.15);
-            border-color: #d0ccc7;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
+        .nav-links a {
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 0;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0077b5;
+            padding: 16px 32px;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: 2px solid #2c2c2c;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-            background: #2c2c2c;
-            color: #ffffff;
-            box-shadow: 0 5px 15px rgba(44,44,44,0.2);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         
-        .btn:hover {
-            background: transparent;
-            color: #2c2c2c;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(44,44,44,0.3);
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
         
-        /* Final Section */
-        .final-section {
-            background: #ffffff;
+        .content-section {
+            background: white;
+            padding: 60px 0;
         }
         
-        .final-section .content-box {
-            margin-bottom: 0;
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #0077b5;
         }
         
-        .final-section h2 {
-            color: #1a1a1a;
+        .section-subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 48px;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .final-section p {
-            color: #4a4a4a;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
         }
         
-        .final-section .content-image {
-            border-color: #e8e5e0;
+        .stat-card {
+            text-align: center;
+            padding: 32px 24px;
+            border-radius: 12px;
+            background: #f8fafe;
+            border: 2px solid #e1f2ff;
         }
         
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0077b5;
+            display: block;
+            margin-bottom: 8px;
         }
         
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
+        .stat-text {
+            font-size: 1rem;
+            color: #666;
         }
         
-        /* Responsive Design */
+        .features-section {
+            background: #f8fafe;
+            padding: 60px 0;
+        }
+        
+        .features-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            box-shadow: 0 2px 8px rgba(0, 119, 181, 0.08);
+            border: 1px solid #e1f2ff;
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: #0077b5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0077b5;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .feature-content {
+            flex: 1;
+        }
+        
+        .final-cta {
+            background: #0077b5;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .final-cta h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .final-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background: #003d5c;
+            color: white;
+            text-align: center;
+            padding: 24px 0;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .hero p {
-                font-size: 1.2rem;
-                padding: 0 20px;
+            .nav-links {
+                display: none;
             }
             
-            .content-box {
+            .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+            }
+            
+            .feature-card {
+                flex-direction: column;
                 text-align: center;
+                gap: 16px;
             }
             
-            .text-content h2 {
-                font-size: 2rem;
-            }
-            
-            .section {
-                padding: 60px 5%;
-            }
-            
-            .social-links {
-                top: 20px;
-                gap: 15px;
-            }
-            
-            .social-link {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .social-link svg {
-                width: 20px;
-                height: 20px;
+            .feature-icon {
+                margin: 0 auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <!-- Social Links -->
-        <div class="social-links">
+    <header>
+        <nav class="container">
+            <div class="logo">
+                CoinWheel
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <a href="https://x.com/coffeeczbnb" class="social-link" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-            </a>
-        </div>
-        
-        <h1>Coffee</h1>
-        <p>The meme that toly trolls cz with to this day</p>
-        <div class="scroll-indicator" onclick="scrollToNext()">
-            <div class="scroll-arrow">↓</div>
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>CoinWheel</h1>
+            <p>Using Pumpfun Fees To Recruit People On Linkedin Live</p>
+            <a href="#" class="cta-button" onclick="alert('Sign up coming soon!')">Get Started</a>
         </div>
     </section>
-    
-    <!-- Section 1 -->
-    <section class="section" id="section1">
+
+    <section class="content-section" id="about">
         <div class="container">
-            <div class="content-box">
-                <div class="text-content">
-                    <h2>The Pattern</h2>
-                    <p>Since 2021, CZ has been telling people to buy coffee every day. Not just once or twice - literally every single day for years. Through tweets, interviews, and random posts, he's made "buy coffee" his daily thing. Everyone was so focused on his crypto advice that they completely missed this obvious meme sitting right in front of them.</p>
-                    <a href="https://x.com/cz_binance/search?q=coffee&src=typed_query" class="btn" target="_blank" rel="noopener noreferrer">See the Tweets</a>
-                </div>
-                <img src="nigga1.png" alt="CZ's Daily Coffee Messages" class="content-image">
-            </div>
+            <h2 class="section-title">The Job Market Challenge</h2>
+            <p class="section-subtitle">
+                Unemployment continues to rise daily, making it harder for qualified professionals to find meaningful work.
+            </p>
             
-            <div class="content-box">
-                <div class="text-content">
-                    <h2>The Hidden Message</h2>
-                    <p>What looked like normal lifestyle advice was actually the biggest meme setup ever. CZ wasn't just promoting morning routines - he was setting up the ultimate inside joke. For years, he's been connecting his name with coffee, and nobody realized it was meme gold. The signs were always there.</p>
-                    <a href="https://twitter.com/search?q=CZ%20coffee%20buy&src=typed_query" class="btn" target="_blank" rel="noopener noreferrer">View the Evidence</a>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">7.2M</span>
+                    <span class="stat-text">Americans unemployed</span>
                 </div>
-                <img src="nigga2.png" alt="The Coffee Connection" class="content-image">
+                <div class="stat-card">
+                    <span class="stat-number">15%</span>
+                    <span class="stat-text">Youth unemployment</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3.8M</span>
+                    <span class="stat-text">Long-term unemployed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">Daily</span>
+                    <span class="stat-text">Numbers increasing</span>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- Section 2 -->
-    <section class="section" id="section2">
+
+    <section class="features-section" id="features">
         <div class="container">
-            <div class="content-box">
-                <div class="text-content">
-                    <h2>The Realization</h2>
-                    <p>Finally, someone connected the dots. After years of CZ telling everyone to buy coffee daily, people realized this was the meme that was right there the whole time. So Coffee Coin was born. This isn't some random meme coin - this is based on years of CZ literally telling people what to buy, and somehow nobody got it until now.</p>
-                    <a href="https://dexscreener.com/search?q=coffee" class="btn" target="_blank" rel="noopener noreferrer">Join the Movement</a>
+            <h2 class="section-title">How JobWheel Helps</h2>
+            <p class="section-subtitle">
+                Simple tools to connect job seekers with the right opportunities
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">SM</div>
+                    <div class="feature-content">
+                        <h3>Smart Matching</h3>
+                        <p>We contact unemployed individuals and pay them pumpfun fees to promote our memecoin to their networks, creating income opportunities while building our community onchain</p>
+                    </div>
                 </div>
-                <img src="nigga3.png" alt="Coffee Coin Emerges" class="content-image">
+                <div class="feature-card">
+                    <div class="feature-icon">SB</div>
+                    <div class="feature-content">
+                        <h3>Skill Building</h3>
+                        <p>Learn effective social media promotion and cryptocurrency marketing techniques to maximize your earning potential in the digital economy</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">NW</div>
+                    <div class="feature-content">
+                        <h3>Networking</h3>
+                        <p>Expand your social circle by sharing our memecoin with friends and family - all transactions verified onchain for transparent payment tracking</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
+
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>Ready to Find Your Next Job?</h2>
+            <p>Join JobWheel and take control of your career today</p>
+            <a href="#" class="cta-button" onclick="alert('Registration opening soon!')">Join Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 JobWheel. Connecting talent with opportunity.</p>
+        </div>
+    </footer>
+
     <script>
-        function scrollToNext() {
-            document.getElementById('section1').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-        
-        // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
-        }, observerOptions);
-        
-        document.querySelectorAll('.content-box').forEach(box => {
-            observer.observe(box);
         });
     </script>
 </body>
 </html>
-
-
