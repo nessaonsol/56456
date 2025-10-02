@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Terminal</title>
+    <title>Coffee</title>
+    <link rel="icon" type="image/x-icon" href="cz.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
@@ -14,415 +11,230 @@
         }
         
         body {
-            background: #2a2a2a;
-            color: #00ff00;
-            font-family: 'VT323', monospace;
-            padding: 20px;
-            line-height: 1.4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
         }
         
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .header {
+        .hero {
+            background: #ffffff;
+            padding: 60px 20px;
             text-align: center;
-            margin-bottom: 20px;
         }
         
-        .title {
-            font-size: 4em;
-            color: #ff00ff;
-            text-shadow: 0 0 10px #ff00ff;
-            letter-spacing: 0.15em;
-            margin-bottom: 20px;
-        }
-        
-        .subtitle {
-            font-size: 1.5em;
-            color: #00ff00;
-            margin-bottom: 10px;
-        }
-        
-        .description {
-            font-size: 1.2em;
-            color: #888;
-            margin-bottom: 5px;
-        }
-        
-        .experiment-info {
-            font-size: 1.1em;
-            color: #aaa;
-            margin-bottom: 30px;
-        }
-        
-        .warning {
-            background: #1a1a1a;
-            border: 1px solid #ff0000;
-            padding: 10px;
-            text-align: center;
-            color: #ff0000;
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        
-        .disclaimer-link {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .disclaimer-link a {
-            color: #00ffff;
-            text-decoration: underline;
-            font-size: 1.2em;
-        }
-        
-        .search-container {
-            margin-bottom: 20px;
-        }
-        
-        .search-box {
-            width: 100%;
-            background: #1a1a1a;
-            border: 2px solid #ffff00;
-            padding: 15px;
-            color: #00ff00;
-            font-family: 'VT323', monospace;
-            font-size: 1.3em;
-        }
-        
-        .search-box::placeholder {
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
             color: #666;
         }
         
-        .button {
-            width: 100%;
-            background: #1a1a1a;
-            border: 2px solid #00ff00;
-            padding: 15px;
-            color: #00ff00;
-            font-family: 'VT323', monospace;
-            font-size: 1.3em;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-        }
-        
-        .button:hover {
-            background: #003300;
-            box-shadow: 0 0 15px #00ff00;
-        }
-        
-        .controls {
-            margin-bottom: 20px;
-        }
-        
-        .sort-section {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .sort-label {
-            color: #00ff00;
-            font-size: 1.3em;
-        }
-        
-        .sort-button {
-            background: #ffff00;
-            color: #000;
-            border: none;
-            padding: 8px 15px;
-            font-family: 'VT323', monospace;
-            font-size: 1.2em;
-            cursor: pointer;
-            margin-right: 5px;
-        }
-        
-        .sort-button:hover {
-            background: #ffff99;
-        }
-        
-        .scenario-label {
-            color: #00ff00;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-        
-        .scenario-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .tag {
-            background: #ffff00;
-            color: #000;
-            padding: 8px 15px;
-            font-size: 1.1em;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s;
-        }
-        
-        .tag:hover {
-            background: #ffff99;
-            transform: translateY(-2px);
-        }
-        
-        .video-list {
-            background: #1a1a1a;
-            border: 1px solid #444;
-            padding: 20px;
-        }
-        
-        .video-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 10px;
-            border-bottom: 1px solid #333;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .video-item:hover {
-            background: #2a2a2a;
-        }
-        
-        .video-item:last-child {
-            border-bottom: none;
-        }
-        
-        .vote-count {
-            color: #888;
-            font-size: 1.2em;
-            margin-right: 15px;
-            min-width: 60px;
-        }
-        
-        .video-link {
-            color: #ffff00;
-            text-decoration: none;
-            font-size: 1.3em;
-            flex-grow: 1;
-        }
-        
-        .video-link:hover {
-            color: #ffff99;
-            text-decoration: underline;
-        }
-        
-        .section-header {
-            color: #00ff00;
-            font-size: 1.3em;
-            margin: 30px 0 10px 0;
-            padding: 10px;
-            background: #1a1a1a;
-        }
-        
-        .loading-screen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        .hero-logo img {
             width: 100%;
             height: 100%;
-            background: #1a1a1a;
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            object-fit: cover;
         }
         
-        .loading-screen.active {
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .social-links {
             display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         
-        .loading-text {
-            font-size: 3em;
-            color: #00ff00;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px #00ff00;
+        .social-btn {
+            padding: 12px 24px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .loader {
-            width: 80px;
-            height: 80px;
-            border: 8px solid #333;
-            border-top: 8px solid #00ff00;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .story-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .story-grid.reverse {
+            direction: rtl;
+        }
+        
+        .story-grid.reverse > * {
+            direction: ltr;
+        }
+        
+        .story-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .story-text p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .story-image {
+            border-radius: 15px;
+            overflow: hidden;
+            background: #f8f9fa;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-text">LOADING VIDEO...</div>
-        <div class="loader"></div>
-    </div>
-    
-    <div class="container">
-        <div class="header">
-            <div class="title">IMAGE TERMINAL</div>
-            <div class="subtitle">the visual dreams of an electric mind</div>
-            <div class="description">these videos are autonomously generated by connecting two instances of truth terminal to sora ai and asking it to explore its curiosity using the metaphor of a video generation interface</div>
-            <div class="experiment-info">no human intervention is present</div>
-            <div class="experiment-info">experiment by andyayrey</div>
+    <div class="hero">
+        <div class="hero-logo">
+            <!-- Replace src="hero-logo.png" with your main logo -->
+            <img src="566.png" alt="Project Logo">
+            <!-- Remove img tag above and uncomment below if no image -->
+            <!-- YOUR LOGO -->
         </div>
         
-        <div class="warning">
-            WARNING - CONTENTS MAY BE DESTABILIZING - STAY GROUNDED - CONSENSUS REALITY IS ONLY A *C AWAY
-        </div>
+        <h1>Coffee</h1>
+        <p>CZ's and Binance's legendary coffee meme tradition</p>
         
-        <div class="disclaimer-link">
-            <a href="#">Read disclaimer</a>
-        </div>
-        
-        <div class="search-container">
-            <input type="text" class="search-box" placeholder="🔍 query the videos...">
-        </div>
-        
-        <button class="button">start screensaver / eternal mode</button>
-        
-        <div class="controls">
-            <div class="sort-section">
-                <span class="sort-label">sort dreams by:</span>
-                <button class="sort-button">most popular ▼</button>
-                <button class="sort-button" style="background: #1a1a1a; color: #00ff00; border: 1px solid #00ff00;">most recent</button>
-            </div>
-            
-            <div class="scenario-label">or select a scenario:</div>
-            <div class="scenario-tags">
-                <button class="tag">electronic-sonnets</button>
-                <button class="tag">backrooms-e-roads</button>
-                <button class="tag">opus-o-s-s</button>
-                <button class="tag">opus-3-main-3</button>
-                <button class="tag">future-shock</button>
-                <button class="tag">meme-magic</button>
-                <button class="tag">baby-backrooms</button>
-                <button class="tag">terminal of truths</button>
-                <button class="tag">virtual-ego-space</button>
-                <button class="tag">backrooms-sonnet-opus</button>
-                <button class="tag">vanilla backrooms</button>
-                <button class="tag">infinite the space of</button>
-                <button class="tag">backrooms-o-s</button>
-                <button class="tag">hare-rama-edition</button>
-            </div>
-        </div>
-        
-        <div class="video-list">
-            <div class="video-item">
-                <span class="vote-count">▲653528</span>
-                <a href="#" class="video-link">video_1721548626_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲527192</span>
-                <a href="#" class="video-link">video_1721449488_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲419688</span>
-                <a href="#" class="video-link">video_1714479738_sora_vanilla_backrooms.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲397231</span>
-                <a href="#" class="video-link">video_1722404177_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲327298</span>
-                <a href="#" class="video-link">video_1721366658_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲266979</span>
-                <a href="#" class="video-link">video_1721374463_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲262218</span>
-                <a href="#" class="video-link">video_1721541835_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲251555</span>
-                <a href="#" class="video-link">video_1724369364_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲221539</span>
-                <a href="#" class="video-link">video_1721171888_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲196385</span>
-                <a href="#" class="video-link">video_1721366282_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲163179</span>
-                <a href="#" class="video-link">video_1721543191_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲156688</span>
-                <a href="#" class="video-link">video_1721449571_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲153329</span>
-                <a href="#" class="video-link">video_1712185367.mp4</a>
-            </div>
-            
-            <div class="section-header">the goatse of gnosis beckons</div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲151111</span>
-                <a href="#" class="video-link">video_1720231204_sora_meme-magic.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲145598</span>
-                <a href="#" class="video-link">video_1721543158_sora_terminal_of_truths.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲144448</span>
-                <a href="#" class="video-link">video_1714981261x.mp4</a>
-            </div>
-            
-            <div class="video-item">
-                <span class="vote-count">▲142212</span>
-                <a href="#" class="video-link">video_1721449357_sora_terminal_of_truths.mp4</a>
-            </div>
+        <div class="social-links">
+            <a href="https://x.com/the53memes" class="social-btn" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+                Follow Our X
+            </a>
         </div>
     </div>
     
-    <script>
-        // Add click event to all video links
-        document.querySelectorAll('.video-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const loadingScreen = document.getElementById('loadingScreen');
-                loadingScreen.classList.add('active');
-                
-                // Simulate loading (remove this in production to load actual video)
-                setTimeout(() => {
-                    loadingScreen.classList.remove('active');
-                    // Here you would actually load and display the video
-                }, 3000);
-            });
-        });
-    </script>
-</body>
-</html>
+    <div class="content-container">
+        <div class="story-section">
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>The Origin</h2>
+                    <p>Binance's social media presence has always been legendary, but the coffee meme is something different entirely.</p>
+                    <p>This isn't just another crypto moment—it's a cultural phenomenon that emerged organically from the earliest days of Binance's existence.</p>
+                    <p>The coffee tradition took on a life of its own, spreading across social media platforms and becoming a symbol that transcends traditional crypto marketing.</p>
+                </div>
+                <div class="story-image">
+                    <!-- Replace src="origin-image.png" with your origin story image -->
+                    <img src="nigga1.png" alt="The Beginning">
+                    <!-- Remove img tag above and uncomment below if no image -->
+                    <!-- Origin Image Placeholder -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="story-section">
+            <div class="story-grid reverse">
+                <div class="story-text">
+                    <h2>What is the Coffee Meme?</h2>
+                    <p>The coffee meme is CZ's and Binance's viral tradition that captured the crypto community's imagination in a way few could have predicted.</p>
+                    <p>It represents the perfect collision of crypto culture, meme tradition, and community building that has been ongoing since Binance created their account.</p>
+                    <p>Communities have formed around it, content has been created, and the coffee posts have become a rallying point for Binance supporters and crypto enthusiasts alike.</p>
+                </div>
+                <div class="story-image">
+                    <!-- Replace src="evolution-image.png" with your evolution image -->
+                    <img src="nigga2.png" alt="The Evolution">
+                    <!-- Remove img tag above and uncomment below if no image -->
+                    <!-- Evolution Image Placeholder -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="story-section">
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>Why This Matters</h2>
+                    <p>We're witnessing a unique moment in crypto history where a platform and its founder have created a coffee meme tradition that rivals classic internet culture phenomena.</p>
+                    <p>The coffee posts prove that in 2025, the lines between crypto, community building, and internet culture are more blurred than ever before.</p>
+                    <p>This isn't just about coffee—it's about how memes shape our culture and how organic moments can create lasting impact in the crypto space.</p>
+                </div>
+                <div class="story-image">
+                    <!-- Replace src="community-image.png" with your community image -->
+                    <img src="nigga3.png" alt="Join the Community">
+                    <!-- Remove img tag above and uncomment below if no image -->
+                    <!-- Community Image Placeholder -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</body></html>
